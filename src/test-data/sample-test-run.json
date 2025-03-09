@@ -1,0 +1,71 @@
+{
+  "test_types": [
+    {
+      "type": "xfstests",
+      "subtype": {
+        "name": "quick2",
+        "runs": [
+          {
+            "run_id": "2025-03-09T14:30:00Z",
+            "tests": [
+              {
+                "name": "generic/001",
+                "status": "pass",
+                "duration": 12.5,
+                "log": null
+              },
+              {
+                "name": "generic/002",
+                "status": "fail",
+                "duration": 8.2,
+                "log": null
+              },
+              {
+                "name": "generic/003",
+                "status": "skip",
+                "duration": 0.1
+              }
+            ],
+            "environment": {
+              "vmlinux_path": null,
+              "config_path": null,
+              "distro": "ubuntu-22.04",
+              "kernel_release": "5.15.0-generic"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ltp",
+      "subtype": {
+        "name": "syscalls",
+        "runs": [
+          {
+            "run_id": "2025-03-09T15:00:00Z",
+            "tests": [
+              {
+                "name": "syscalls/read/01",
+                "status": "pass",
+                "duration": 0.5,
+                "log": null
+              },
+              {
+                "name": "syscalls/write/01",
+                "status": "pass",
+                "duration": 0.6,
+                "log": null
+              }
+            ],
+            "environment": {
+              "vmlinux_path": null,
+              "config_path": null,
+              "distro": "ubuntu-22.04",
+              "kernel_release": "5.15.0-generic"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

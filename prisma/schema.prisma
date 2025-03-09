@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model TestType {
+  id          String       @id @default(uuid())
+  name        String       @unique
+  description String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  subtypes    TestSubtype[]
+}
+
+model TestSubtype {
+  id          String     @id @default(uuid())
+  testTypeId  String
+  name        String     @unique
+  description String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  testType    TestType   @relation(fields: [testTypeId], references: [id])
+  runs        TestRun[]
+
+  @@unique([testTypeId, name])
+}
+
+model TestRun {
+  id            String          @id @default(uuid())
+  testSubtypeId String
+  runTimestamp  DateTime
+  version       String?
+  totalTests    Int?
+  passedTests   Int?
+  failedTests   Int?
+  totalDuration Float?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  subtype       TestSubtype     @relation(fields: [testSubtypeId], references: [id])
+  results       TestResult[]
+  environment   TestEnvironment?
+}
+
+model TestEnvironment {
+  id            String   @id @default(uuid())
+  testRunId     String   @unique
+  vmlinuxPath   String?
+  configPath    String?
+  distro        String?
+  kernelRelease String?
+  architecture  String?
+  configName    String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  testRun       TestRun  @relation(fields: [testRunId], references: [id])
+}
+
+model TestResult {
+  id            String    @id @default(uuid())
+  testRunId     String
+  name          String
+  status        String
+  duration      Float
+  hasLog        Boolean
+  errorMessage  String?
+  createdAt     DateTime  @default(now())
+  testRun       TestRun   @relation(fields: [testRunId], references: [id])
+  log           TestLog?
+
+  @@index([testRunId, name])
+  @@index([testRunId, status])
+}
+
+model TestLog {
+  id            String     @id @default(uuid())
+  testResultId  String     @unique
+  logPath       String
+  createdAt     DateTime   @default(now())
+  testResult    TestResult @relation(fields: [testResultId], references: [id])
+}
