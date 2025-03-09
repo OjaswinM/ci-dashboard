@@ -49,6 +49,7 @@ export async function GET(
             log: true
           },
           orderBy: [
+            { name: 'asc' },
             { status: 'desc' },  // Failed tests first
             { duration: 'desc' } // Longer duration tests first
           ]
