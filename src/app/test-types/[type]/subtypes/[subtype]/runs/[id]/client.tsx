@@ -3,6 +3,7 @@
 import React from 'react';
 import type { ReactElement } from 'react';
 import Link from 'next/link';
+import { LogFile, LogContent } from '@/lib/validation/test-logs';
 
 import { type SingleTestRun, type TestResult, type SingleTestRunResponse } from '@/lib/validation/test-result';
 
@@ -18,6 +19,14 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
   const [error, setError] = React.useState<string | null>(null);
   const [selectedStatus, setSelectedStatus] = React.useState<string>('all');
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [selectedTest, setSelectedTest] = React.useState<TestResult | null>(null);
+  const [logFiles, setLogFiles] = React.useState<LogFile[]>([]);
+  const [selectedLogFile, setSelectedLogFile] = React.useState<string | null>(null);
+  const [logContent, setLogContent] = React.useState<string>('');
+  const [loadingLogs, setLoadingLogs] = React.useState(false);
+  const [hasMoreLogs, setHasMoreLogs] = React.useState(false);
+  const [nextCursor, setNextCursor] = React.useState<string | undefined>();
+  const logViewerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     fetchTestRun();
@@ -50,6 +59,77 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleString();
+  };
+
+  const handleViewLogs = async (test: TestResult) => {
+    setSelectedTest(test);
+    setLoadingLogs(true);
+    try {
+      const url = new URL(
+        `/api/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}/runs/${runId}/test-logs/${encodeURIComponent(test.name)}`,
+        window.location.origin
+      );
+
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch log files');
+      }
+
+      const data = await response.json();
+      setLogFiles(data.files);
+    } catch (err) {
+      console.error('Error fetching log files:', err);
+      setError(err instanceof Error ? err.message : 'Failed to fetch log files');
+    } finally {
+      setLoadingLogs(false);
+    }
+  };
+
+  const handleSelectLogFile = async (filePath: string) => {
+    setSelectedLogFile(filePath);
+    setLogContent('');
+    setNextCursor(undefined);
+    await fetchLogContent(filePath);
+  };
+
+  const fetchLogContent = async (filePath: string, cursor?: string) => {
+    if (!selectedTest) return;
+
+    setLoadingLogs(true);
+    try {
+      const url = new URL(
+        `/api/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}/runs/${runId}/test-logs/${encodeURIComponent(selectedTest.name)}`,
+        window.location.origin
+      );
+      url.searchParams.set('filePath', filePath);
+      if (cursor) {
+        url.searchParams.set('cursor', cursor);
+      }
+
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch log content');
+      }
+
+      const data: LogContent = await response.json();
+      setLogContent(prev => cursor ? prev + data.content : data.content);
+      setHasMoreLogs(data.hasMore);
+      setNextCursor(data.nextCursor);
+    } catch (err) {
+      console.error('Error fetching log content:', err);
+      setError(err instanceof Error ? err.message : 'Failed to fetch log content');
+    } finally {
+      setLoadingLogs(false);
+    }
+  };
+
+  const handleLogScroll = () => {
+    if (!logViewerRef.current || !hasMoreLogs || loadingLogs || !selectedLogFile) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = logViewerRef.current;
+    if (scrollTop + clientHeight >= scrollHeight - 100) {
+      fetchLogContent(selectedLogFile, nextCursor);
+    }
   };
 
   const formatDuration = (duration: number) => {
@@ -290,7 +370,8 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                   {filteredResults?.map((result) => (
                     <div 
                       key={result.id} 
-                      className={`p-4 rounded-lg border w-full h-full ${result.status === 'fail' ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}
+                      className={`p-4 rounded-lg border w-full h-full cursor-pointer hover:shadow-md transition-shadow ${result.status === 'fail' ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}
+                      onClick={() => handleViewLogs(result)}
                     >
                       <div className="flex flex-col h-full justify-between">
                         <p className="text-xs font-medium text-gray-900 dark:text-white truncate">
@@ -310,15 +391,16 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                               {result.errorMessage}
                             </span>
                           )}
-                          {result.hasLog && result.logPath && (
-                            <a
-                              href={result.logPath}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                          {result.hasLog && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleViewLogs(result);
+                              }}
                               className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 shrink-0"
                             >
                               Log→
-                            </a>
+                            </button>
                           )}
                         </div>
                       </div>
@@ -330,6 +412,98 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
           </div>
         </div>
       </main>
+
+      {/* Log Viewer Modal */}
+      {selectedTest && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50">
+          <div className="fixed inset-0 z-50 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <div className="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
+                <div className="bg-white dark:bg-gray-800 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      {selectedTest.name}
+                    </h3>
+                    <button
+                      onClick={() => {
+                        setSelectedTest(null);
+                        setLogFiles([]);
+                        setSelectedLogFile(null);
+                        setLogContent('');
+                        setNextCursor(undefined);
+                      }}
+                      className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+                    >
+                      <span className="sr-only">Close</span>
+                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  
+                  <div className="flex space-x-4">
+                    {/* Log Files List */}
+                    <div className="w-1/3 border-r dark:border-gray-700 pr-4">
+                      <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Log Files</h4>
+                      {loadingLogs && logFiles.length === 0 ? (
+                        <div className="flex justify-center items-center h-32">
+                          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white"></div>
+                        </div>
+                      ) : (
+                        <div className="space-y-2">
+                          {logFiles.map((file) => (
+                            <button
+                              key={file.path}
+                              onClick={() => handleSelectLogFile(file.path)}
+                              className={`w-full text-left px-3 py-2 rounded-md text-sm ${selectedLogFile === file.path
+                                ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-200'
+                                : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
+                              }`}
+                            >
+                              <div className="truncate">{file.path}</div>
+                              <div className="text-xs text-gray-500 dark:text-gray-400">
+                                {(file.size / 1024).toFixed(1)}KB
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Log Content */}
+                    <div className="w-2/3 overflow-hidden">
+                      <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Log Content</h4>
+                      <div
+                        ref={logViewerRef}
+                        className="font-mono text-sm bg-gray-100 dark:bg-gray-900 rounded-md p-4 h-[500px] overflow-auto whitespace-pre"
+                        onScroll={handleLogScroll}
+                      >
+                        {selectedLogFile ? (
+                          loadingLogs ? (
+                            <div className="flex justify-center items-center h-full">
+                              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white"></div>
+                            </div>
+                          ) : logContent ? (
+                            logContent
+                          ) : (
+                            <div className="text-gray-500 dark:text-gray-400 text-center">
+                              No content available
+                            </div>
+                          )
+                        ) : (
+                          <div className="text-gray-500 dark:text-gray-400 text-center">
+                            Select a log file to view its content
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
