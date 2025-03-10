@@ -1,0 +1,68 @@
+Userspace support of large timestamps: 1
+xfs_io support of statx: 1
+before
+/vdc/t_abs_max_time: Dec 31 23:59:59 UTC 2147483647
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_abs_max_time
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0
+/vdc/t_abs_min_time: Jan 1 00:00:00 UTC 0
+1901-12-13 20:45:52.000000000 +0000 -2147483648 /vdc/t_abs_min_time
+stat.mtime.tv_sec = -2147483648
+stat.mtime.tv_nsec = 0
+/vdc/t_all_twos: Feb 22 22:22:22 UTC 2222
+2222-02-22 22:22:22.000000000 +0000 7956915742 /vdc/t_all_twos
+stat.mtime.tv_sec = 7956915742
+stat.mtime.tv_nsec = 0
+/vdc/t_s32_max: Jan 19 03:14:07 UTC 2038
+2038-01-19 03:14:07.000000000 +0000 2147483647 /vdc/t_s32_max
+stat.mtime.tv_sec = 2147483647
+stat.mtime.tv_nsec = 0
+/vdc/t_s32_min: Dec 13 20:45:52 UTC 1901
+1901-12-13 20:45:52.000000000 +0000 -2147483648 /vdc/t_s32_min
+stat.mtime.tv_sec = -2147483648
+stat.mtime.tv_nsec = 0
+/vdc/t_u34_from_s32_min: May 10 22:38:55 UTC 2446
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_u34_from_s32_min
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0
+/vdc/t_u34_max: May 30 01:53:03 UTC 2514
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_u34_max
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0
+/vdc/t_u64ns_from_s32_min: Tue Jul  2 20:20:24 UTC 2486
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_u64ns_from_s32_min
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0
+after
+/vdc/t_abs_max_time: Dec 31 23:59:59 UTC 2147483647
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_abs_max_time
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0
+/vdc/t_abs_min_time: Jan 1 00:00:00 UTC 0
+1901-12-13 20:45:52.000000000 +0000 -2147483648 /vdc/t_abs_min_time
+stat.mtime.tv_sec = -2147483648
+stat.mtime.tv_nsec = 0
+/vdc/t_all_twos: Feb 22 22:22:22 UTC 2222
+2222-02-22 22:22:22.000000000 +0000 7956915742 /vdc/t_all_twos
+stat.mtime.tv_sec = 7956915742
+stat.mtime.tv_nsec = 0
+/vdc/t_s32_max: Jan 19 03:14:07 UTC 2038
+2038-01-19 03:14:07.000000000 +0000 2147483647 /vdc/t_s32_max
+stat.mtime.tv_sec = 2147483647
+stat.mtime.tv_nsec = 0
+/vdc/t_s32_min: Dec 13 20:45:52 UTC 1901
+1901-12-13 20:45:52.000000000 +0000 -2147483648 /vdc/t_s32_min
+stat.mtime.tv_sec = -2147483648
+stat.mtime.tv_nsec = 0
+/vdc/t_u34_from_s32_min: May 10 22:38:55 UTC 2446
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_u34_from_s32_min
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0
+/vdc/t_u34_max: May 30 01:53:03 UTC 2514
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_u34_max
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0
+/vdc/t_u64ns_from_s32_min: Tue Jul  2 20:20:24 UTC 2486
+2446-05-10 22:38:55.000000000 +0000 15032385535 /vdc/t_u64ns_from_s32_min
+stat.mtime.tv_sec = 15032385535
+stat.mtime.tv_nsec = 0

@@ -1,0 +1,17 @@
+# mount to nonexistent mount point
+mount: /vdd/nosuchdir: mount point does not exist.
+       dmesg(1) may have more information after failed mount system call.
+# mount a free loop device
+mount: /vdc: can't read superblock on /dev/loop0.
+       dmesg(1) may have more information after failed mount system call.
+umount: /vdc: not mounted.
+# mount with wrong fs type
+mount: /vdc: wrong fs type, bad option, bad superblock on /dev/vdc, missing codepage or helper program, or other error.
+       dmesg(1) may have more information after failed mount system call.
+# umount symlink to device, which is not mounted
+umount: /vdd/067.scratch_dev_symlink: not mounted.
+# umount a too-long name
+umount: /vdc/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: umount(2) system call failed: File name too long.
+# lazy umount a symlink
+umount: /vdc/067.testdir_symlink: not mounted.
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,20 @@
+umount: /vdc: not mounted.
+device-mapper: remove ioctl on thin-vol.347  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on thin-provision-pool.347  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on thin-meta.347  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on thin-data.347  failed: No such device or address
+Command failed.
+umount: /vdc: not mounted.
+umount: /vdc: not mounted.
+device-mapper: remove ioctl on thin-vol.347  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on thin-provision-pool.347  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on thin-meta.347  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on thin-data.347  failed: No such device or address
+Command failed.
+umount: /dev/vdc: not mounted.

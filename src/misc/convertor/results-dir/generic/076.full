@@ -1,0 +1,5 @@
+umount: /dev/vdc: not mounted.
+*** MKFS ***
+
+run fsstress with args:  -d /vdc -p 2 -n 2000
+seed = 1741372752

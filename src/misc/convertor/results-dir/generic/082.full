@@ -1,0 +1,4 @@
+quotacheck: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+quotaon: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+mount: /vdc: mount point not mounted or bad option.
+       dmesg(1) may have more information after failed mount system call.

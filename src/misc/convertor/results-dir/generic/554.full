@@ -1,0 +1,8 @@
+wrote 40960/40960 bytes at offset 0
+40 KiB, 10 ops; 0.0000 sec (513.980 MiB/sec and 131578.9474 ops/sec)
+Setting up swapspace version 1, size = 36 KiB (36864 bytes) no label, UUID=0dd252f8-3fe0-4694-bfa8-e7dde390d245
+wrote 131072/131072 bytes at offset 0
+128 KiB, 32 ops; 0.0000 sec (1.372 GiB/sec and 359550.5618 ops/sec)
+wrote 16777216/16777216 bytes at offset 0
+16 MiB, 4096 ops; 0.0062 sec (2.510 GiB/sec and 657991.9679 ops/sec)
+Setting up swapspace version 1, size = 16 MiB (16773120 bytes) no label, UUID=a30f0b0d-ce12-463c-8544-d2f5893370f2

@@ -1,0 +1,4 @@
+umount: /vdc: not mounted.
+device-mapper: remove ioctl on flakey-test.745  failed: No such device or address
+Command failed.
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,5 @@
+Before:  "uid: 100, gid: 100"
+After :  "uid: 100, gid: 100"
+Before:  "uid: 100, gid: 100"
+After :  "uid: 100, gid: 100"
+umount: /dev/vdc: not mounted.

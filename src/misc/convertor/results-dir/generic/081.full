@@ -1,0 +1,15 @@
+  Wiping ext4 signature on /dev/vdc.
+  Physical volume "/dev/vdc" successfully created.
+  Volume group "vg_081" successfully created
+  Rounding up size to full physical extent 256.00 MiB
+  Logical volume "base_081" created.
+  Logical volume "snap_081" created.
+fsync: Input/output error
+wrote 5242880/5242880 bytes at offset 0
+5 MiB, 1280 ops; 0.0041 sec (1.173 GiB/sec and 307396.7339 ops/sec)
+umount: /vdd/mnt_081: not mounted.
+  Logical volume "snap_081" successfully removed.
+  Logical volume "base_081" successfully removed.
+  Volume group "vg_081" successfully removed
+  Labels on physical volume "/dev/vdc" successfully wiped.
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,4 @@
+Test chmod /vdc/testfile
+Test chmod /vdc/testdir
+umount: /vdc: not mounted.
+umount: /dev/vdc: not mounted.

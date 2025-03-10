@@ -1,0 +1,50 @@
+tune2fs 1.47.1-rc2 (01-May-2024)
+Filesystem volume name:   <none>
+Last mounted on:          /vdc
+Filesystem UUID:          850c01a2-50dc-4eac-94c2-ad7040561b63
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index fast_commit orphan_file filetype needs_recovery extent 64bit flex_bg metadata_csum_seed inline_data sparse_super large_file huge_file dir_nlink extra_isize metadata_csum orphan_present
+Filesystem flags:         signed_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              327680
+Block count:              1310720
+Reserved block count:     65536
+Overhead clusters:        42328
+Free blocks:              1268067
+Free inodes:              327668
+First block:              0
+Block size:               4096
+Fragment size:            4096
+Group descriptor size:    64
+Reserved GDT blocks:      639
+Blocks per group:         32768
+Fragments per group:      32768
+Inodes per group:         8192
+Inode blocks per group:   512
+Flex block group size:    16
+Filesystem created:       Mon Mar 10 08:45:24 2025
+Last mount time:          Mon Mar 10 08:45:24 2025
+Last write time:          Mon Mar 10 08:45:24 2025
+Mount count:              2
+Maximum mount count:      -1
+Last checked:             Mon Mar 10 08:45:24 2025
+Check interval:           0 (<none>)
+Lifetime writes:          3901 kB
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:               256
+Required extra isize:     32
+Desired extra isize:      32
+Journal inode:            8
+Default directory hash:   half_md4
+Directory Hash Seed:      5a60be8d-8ca2-49e9-afc9-c1b1eb3cef01
+Journal backup:           inode blocks
+Checksum type:            crc32c
+Checksum:                 0x8592c02a
+Checksum seed:            0xf5c15280
+Orphan file inode:        12

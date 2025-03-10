@@ -1,0 +1,20 @@
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:        0/20971520                 done                            
+Creating filesystem with 20971520 1k blocks and 409600 inodes
+Filesystem UUID: 2a65d133-3537-45e0-a80c-841986e8a9ba
+Superblock backups stored on blocks: 
+	8193, 24577, 40961, 57345, 73729, 204801, 221185, 401409, 663553, 
+	1024001, 1990657, 2809857, 5120001, 5971969, 17915905, 19668993
+
+Allocating group tables:    0/2560         done                            
+Writing inode tables:    0/2560         done                            
+Writing superblocks and filesystem accounting information:    0/2560         done
+
+e2fsck 1.47.1-rc2 (01-May-2024)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/vdd/052.img: 400013/409600 files (0.0% non-contiguous), 230745/20971520 blocks
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,15 @@
+Start test timestamps with 128 inode size one device /dev/vdc
+** mkfs failed with extra mkfs options added to "-q -O inline_data,fast_commit" by test 043 **
+** attempting to mkfs using only test 043 options: -I 128 **
+128-byte inodes cannot handle dates beyond 2038 and are deprecated
+Discarding device blocks:       0/1310720               done                            
+Creating filesystem with 1310720 4k blocks and 327680 inodes
+Filesystem UUID: f65c23dd-880d-4e30-903c-3db70972503e
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables:  0/40     done                            
+Writing inode tables:  0/40     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/40     done
+

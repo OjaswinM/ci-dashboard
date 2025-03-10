@@ -1,0 +1,3 @@
+wrote 270532608/270532608 bytes at offset 0
+258 MiB, 1 ops; 0.0806 sec (3.122 GiB/sec and 12.3919 ops/sec)
+umount: /dev/vdc: not mounted.

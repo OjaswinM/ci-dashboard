@@ -1,0 +1,12 @@
+Checking whether kernel supports encryption policy: -v 2
+e2fsck 1.47.1-rc2 (01-May-2024)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 3A: Optimizing directories
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+
+/dev/vdc: ***** FILE SYSTEM WAS MODIFIED *****
+/dev/vdc: 112/327680 files (0.0% non-contiguous), 42654/1310720 blocks
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,6 @@
+wrote 40960/40960 bytes at offset 0
+40 KiB, 10 ops; 0.0000 sec (2 GiB/sec and 400000.0000 ops/sec)
+Setting up swapspace version 1, size = 36 KiB (36864 bytes) no label, UUID=3e26ffc6-2e64-4e17-9098-ad7afa680ebb
+/usr/bin/chattr: Operation not supported while setting flags on /vdc/swap
+wrote 4096/4096 bytes at offset 0
+4 KiB, 1 ops; 0.0000 sec (355.114 MiB/sec and 90909.0909 ops/sec)

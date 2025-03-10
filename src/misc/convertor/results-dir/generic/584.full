@@ -1,0 +1,199 @@
+Checking whether kernel supports encryption policy: -c 9 -n 9 -v 2 -f 0
+Checking for _get_encryption_nonce() support for ext4
+Checking for _get_ciphertext_filename() support for ext4
+debugfs 1.47.1-rc2 (01-May-2024)
+      2   40755 (2)      0      0    4096 10-Mar-2025 08:54 .
+      2   40755 (2)      0      0    4096 10-Mar-2025 08:54 ..
+     11   40700 (2)      0      0   12288 10-Mar-2025 08:54 lost+found
+     13  100644 (1)      0      0       0 10-Mar-2025 08:54 \xc1
+
+Creating encryption-capable filesystem
+Generating encryption key
+Verifying key identifier
+Full ciphertext verification parameters:
+  contents_encryption_mode = Adiantum
+  filenames_encryption_mode = Adiantum
+  policy_flags = 0
+  set_encpolicy_args = -c 9 -n 9 -v 2
+  keyspec = 8f37f7eb1d298c6d0f46135523f6b093
+  raw_key_hex = 0c106a393ae510e1da443dbb30f09ae918c2651ada1cb094ddbcfb4a482ee75ef3ca0fefe0ba49e6c58b90fb21559691b1be6761d91b0a850eab57c710ff4ad6
+  crypt_util_contents_args =  --mode-num=9 --data-unit-size=4096 --kdf=HKDF-SHA512 --fs-uuid=d2e7c4b184a941c6a883807918800b7a
+  crypt_util_filename_args =  --mode-num=9 --kdf=HKDF-SHA512 --fs-uuid=d2e7c4b184a941c6a883807918800b7a
+Creating files for contents verification
+Creating files for filenames verification
+Verifying encrypted file contents
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+Verifying encrypted file names
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+Checking whether kernel supports encryption policy: -c 9 -n 9 -v 2 -f 4
+Checking for _get_encryption_nonce() support for ext4
+Checking for _get_ciphertext_filename() support for ext4
+debugfs 1.47.1-rc2 (01-May-2024)
+      2   40755 (2)      0      0    4096 10-Mar-2025 08:54 .
+      2   40755 (2)      0      0    4096 10-Mar-2025 08:54 ..
+     11   40700 (2)      0      0   12288 10-Mar-2025 08:54 lost+found
+     13  100644 (1)      0      0       0 10-Mar-2025 08:54 \xc1
+
+Creating encryption-capable filesystem
+Generating encryption key
+Verifying key identifier
+Full ciphertext verification parameters:
+  contents_encryption_mode = Adiantum
+  filenames_encryption_mode = Adiantum
+  policy_flags = 4
+  set_encpolicy_args = -c 9 -n 9 -v 2
+  keyspec = e5f08903f84a3b7c0c8f62b1740d2c12
+  raw_key_hex = e8a504e55ffdda76d2c7ec0e407fcc18dbaf8562e258d9204899693b5929ac42fbe6b5ed8d0a0bb4341a3315a606b4ef93ac104014db2fa6d728dfad0efad9c1
+  crypt_util_contents_args =  --mode-num=9 --data-unit-size=4096 --kdf=HKDF-SHA512 --direct-key --fs-uuid=60a2293efcab4943a2aaf36b03b19f4e
+  crypt_util_filename_args =  --mode-num=9 --kdf=HKDF-SHA512 --direct-key --fs-uuid=60a2293efcab4943a2aaf36b03b19f4e
+Creating files for contents verification
+Creating files for filenames verification
+Verifying encrypted file contents
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+Verifying encrypted file names
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+debugfs 1.47.1-rc2 (01-May-2024)
+umount: /dev/vdc: not mounted.

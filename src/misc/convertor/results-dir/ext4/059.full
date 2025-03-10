@@ -1,0 +1,5 @@
+debugfs 1.47.1-rc2 (01-May-2024)
+resize2fs 1.47.1-rc2 (01-May-2024)
+/usr/sbin/resize2fs: Structure needs cleaning While checking for on-line resizing support
+Filesystem at /dev/vdc is mounted on /vdc; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1

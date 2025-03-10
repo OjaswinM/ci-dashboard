@@ -1,0 +1,4 @@
+wrote 4096/4096 bytes at offset 17592186036224
+4 KiB, 1 ops; 0.0000 sec (244 MiB/sec and 62500.0000 ops/sec)
+pwrite: File too large
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,134 @@
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o defaults
+--- initiating IO...
+wrote 921600/921600 bytes at offset 0
+900 KiB, 225 ops; 0.0002 sec (3.327 GiB/sec and 872093.0233 ops/sec)
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     --     900    1000    2000              2     3     5       
+
+
+wrote 1024001/1024001 bytes at offset 0
+1000 KiB, 251 ops; 0.0002 sec (4.498 GiB/sec and 1183962.2642 ops/sec)
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    2000  00:00       2     3     5       
+
+
+pwrite: Disk quota exceeded
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    2000    1000    2000  00:00       2     3     5       
+
+
+pwrite: Disk quota exceeded
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    2000   none       2     3     5       
+
+
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3     5  00:00
+
+
+touch: cannot touch 'SCRATCH_MNT/file6': Disk quota exceeded
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              5     3     5  00:00
+
+
+touch: cannot touch 'SCRATCH_MNT/file5': Disk quota exceeded
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3     5   none
+
+
+--- completed IO (u)
+--- initiating IO...
+wrote 921600/921600 bytes at offset 0
+900 KiB, 225 ops; 0.0002 sec (3.033 GiB/sec and 795053.0035 ops/sec)
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     --     900    1000    2000              2     3     5       
+
+
+wrote 1024001/1024001 bytes at offset 0
+1000 KiB, 251 ops; 0.0002 sec (3.990 GiB/sec and 1050209.2050 ops/sec)
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    2000  00:00       2     3     5       
+
+
+pwrite: Disk quota exceeded
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    2000    1000    2000  00:00       2     3     5       
+
+
+pwrite: Disk quota exceeded
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    2000   none       2     3     5       
+
+
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3     5  00:00
+
+
+touch: cannot touch 'SCRATCH_MNT/file6': Disk quota exceeded
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              5     3     5  00:00
+
+
+touch: cannot touch 'SCRATCH_MNT/file5': Disk quota exceeded
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3     5   none
+
+
+--- completed IO (g)
+umount: /dev/vdc: not mounted.

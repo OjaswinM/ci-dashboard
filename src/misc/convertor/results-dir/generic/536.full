@@ -1,0 +1,21 @@
+pwrite: No space left on device
+wrote 262144/262144 bytes at offset 0
+256 KiB, 64 ops; 0.0001 sec (1.719 GiB/sec and 450704.2254 ops/sec)
+wrote 266240/266240 bytes at offset 0
+260 KiB, 65 ops; 0.0001 sec (1.907 GiB/sec and 500000.0000 ops/sec)
+wrote 4096/4096 bytes at offset 1572864
+4 KiB, 1 ops; 0.0000 sec (300.481 MiB/sec and 76923.0769 ops/sec)
+file.1
+000000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  >................<
+*
+03f000 cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd  >................<
+*
+040000
+file.2
+000000 cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd  >................<
+*
+041000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  >................<
+*
+180000 cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd  >................<
+*
+181000

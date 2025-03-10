@@ -1,0 +1,165 @@
+BACKUP /tmp/158307.backup1
+# file: /vdc/descend
+user.1="23"
+user.x="yz"
+
+# file: /vdc/descend/down
+user.1="23"
+user.x="yz"
+
+# file: /vdc/descend/down/here
+user.1="23"
+user.x="yz"
+
+# file: /vdc/dev/b
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/dev/c
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/dev/p
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/dir
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+user.name=0sur4=
+user.name3=0s3vrO
+
+# file: /vdc/here
+trusted.9="87"
+trusted.a="bc"
+
+# file: /vdc/here/up
+trusted.9="87"
+trusted.a="bc"
+
+# file: /vdc/here/up/ascend
+trusted.9="87"
+trusted.a="bc"
+
+# file: /vdc/lnk
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/reg
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+user.name=0sur4=
+user.name3=0s3vrO
+
+AFTER REMOVE
+BACKUP /tmp/158307.backup2
+# file: /vdc/descend
+user.1="23"
+user.x="yz"
+
+# file: /vdc/descend/down
+user.1="23"
+user.x="yz"
+
+# file: /vdc/descend/down/here
+user.1="23"
+user.x="yz"
+
+# file: /vdc/dev/b
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/dev/c
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/dev/p
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/dir
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+user.name=0sur4=
+user.name3=0s3vrO
+
+# file: /vdc/here
+trusted.9="87"
+trusted.a="bc"
+
+# file: /vdc/here/up
+trusted.9="87"
+trusted.a="bc"
+
+# file: /vdc/here/up/ascend
+trusted.9="87"
+trusted.a="bc"
+
+# file: /vdc/lnk
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: /vdc/reg
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+user.name=0sur4=
+user.name3=0s3vrO
+
+AFTER RESTORE
+# file: SCRATCH_MNT/descend
+user.1="23"
+user.x="yz"
+
+# file: SCRATCH_MNT/descend/and/ascend
+trusted.9="87"
+trusted.a="bc"
+
+# file: SCRATCH_MNT/descend/down
+user.1="23"
+user.x="yz"
+
+# file: SCRATCH_MNT/descend/down/here
+user.1="23"
+user.x="yz"
+
+# file: SCRATCH_MNT/reg
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+user.name=0sur4=
+user.name3=0s3vrO
+
+# file: SCRATCH_MNT/here
+trusted.9="87"
+trusted.a="bc"
+
+# file: SCRATCH_MNT/here/up
+trusted.9="87"
+trusted.a="bc"
+
+# file: SCRATCH_MNT/here/up/ascend
+trusted.9="87"
+trusted.a="bc"
+
+# file: SCRATCH_MNT/dev/c
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: SCRATCH_MNT/dev/b
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: SCRATCH_MNT/dev/p
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+# file: SCRATCH_MNT/dir
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+user.name=0sur4=
+user.name3=0s3vrO
+
+# file: SCRATCH_MNT/lnk
+trusted.name=0sur4=
+trusted.name3=0s3vrO
+
+umount: /dev/vdc: not mounted.

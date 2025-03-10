@@ -1,0 +1,2 @@
+non-numeric length argument -- $(($avail_begin/2))
+umount: /dev/vdc: not mounted.

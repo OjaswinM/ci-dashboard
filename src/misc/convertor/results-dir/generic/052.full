@@ -1,0 +1,121 @@
+Opening "/vdc"
+Calling XFS_IOC_GOINGDOWN
+Filesystem volume name:   <none>
+Last mounted on:          /vdc
+Filesystem UUID:          447b8abf-1941-4e9d-a7f6-db65982dedf1
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index fast_commit orphan_file filetype needs_recovery extent 64bit flex_bg metadata_csum_seed inline_data sparse_super large_file huge_file dir_nlink extra_isize metadata_csum orphan_present
+Filesystem flags:         signed_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              327680
+Block count:              1310720
+Reserved block count:     65536
+Overhead clusters:        42328
+Free blocks:              1268067
+Free inodes:              327568
+First block:              0
+Block size:               4096
+Fragment size:            4096
+Group descriptor size:    64
+Reserved GDT blocks:      639
+Blocks per group:         32768
+Fragments per group:      32768
+Inodes per group:         8192
+Inode blocks per group:   512
+Flex block group size:    16
+Filesystem created:       Mon Mar 10 08:46:35 2025
+Last mount time:          Mon Mar 10 08:46:35 2025
+Last write time:          Mon Mar 10 08:46:35 2025
+Mount count:              1
+Maximum mount count:      -1
+Last checked:             Mon Mar 10 08:46:35 2025
+Check interval:           0 (<none>)
+Lifetime writes:          3957 kB
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:               256
+Required extra isize:     32
+Desired extra isize:      32
+Journal inode:            8
+Default directory hash:   half_md4
+Directory Hash Seed:      5ddd832b-70ba-4648-860c-4e4bc9af0a28
+Journal backup:           inode blocks
+Checksum type:            crc32c
+Checksum:                 0x946ef47d
+Checksum seed:            0x21ee4f39
+Orphan file inode:        12
+Journal features:         journal_64bit journal_checksum_v3 FEATURE_I5
+Total journal size:       65M
+Total journal blocks:     16640
+Max transaction length:   16384
+Fast commit length:       256
+Journal sequence:         0x00000002
+Journal start:            1
+Journal checksum type:    crc32c
+Journal checksum:         0x4ec12789
+
+Filesystem volume name:   <none>
+Last mounted on:          /vdc
+Filesystem UUID:          447b8abf-1941-4e9d-a7f6-db65982dedf1
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index fast_commit orphan_file filetype extent 64bit flex_bg metadata_csum_seed inline_data sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+Filesystem flags:         signed_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              327680
+Block count:              1310720
+Reserved block count:     65536
+Overhead clusters:        42328
+Free blocks:              1268067
+Free inodes:              327568
+First block:              0
+Block size:               4096
+Fragment size:            4096
+Group descriptor size:    64
+Reserved GDT blocks:      639
+Blocks per group:         32768
+Fragments per group:      32768
+Inodes per group:         8192
+Inode blocks per group:   512
+Flex block group size:    16
+Filesystem created:       Mon Mar 10 08:46:35 2025
+Last mount time:          Mon Mar 10 08:46:35 2025
+Last write time:          Mon Mar 10 08:46:35 2025
+Mount count:              2
+Maximum mount count:      -1
+Last checked:             Mon Mar 10 08:46:35 2025
+Check interval:           0 (<none>)
+Lifetime writes:          4041 kB
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:               256
+Required extra isize:     32
+Desired extra isize:      32
+Journal inode:            8
+Default directory hash:   half_md4
+Directory Hash Seed:      5ddd832b-70ba-4648-860c-4e4bc9af0a28
+Journal backup:           inode blocks
+Checksum type:            crc32c
+Checksum:                 0x9a218a2f
+Checksum seed:            0x21ee4f39
+Orphan file inode:        12
+Journal features:         journal_64bit journal_checksum_v3
+Total journal size:       65M
+Total journal blocks:     16640
+Max transaction length:   16384
+Fast commit length:       256
+Journal sequence:         0x00000006
+Journal start:            0
+Journal checksum type:    crc32c
+Journal checksum:         0x84dd2cc3
+
+umount: /dev/vdc: not mounted.

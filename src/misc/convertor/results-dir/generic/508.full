@@ -1,0 +1,6 @@
+stat.btime = Mon Mar 10 08:53:38 2025
+Before: stat.btime = Mon Mar 10 08:53:38 2025
+After : stat.btime = Mon Mar 10 08:53:38 2025
+Before: stat.btime = Mon Mar 10 08:53:38 2025
+After : stat.btime = Mon Mar 10 08:53:38 2025
+umount: /dev/vdc: not mounted.

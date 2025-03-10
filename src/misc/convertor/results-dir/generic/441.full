@@ -1,0 +1,11 @@
+device-mapper: remove ioctl on error-test.441  failed: No such device or address
+Command failed.
+/root/xfstests/src/fsync-err -s -d /root/xfstests/src/dmerror /vdc/fsync-err-test
+umount: /vdc: not mounted.
+fsck from util-linux 2.38.1
+e2fsck 1.47.1-rc2 (01-May-2024)
+/dev/vdc: clean, 13/327680 files, 42816/1310720 blocks
+umount: /vdc: not mounted.
+device-mapper: remove ioctl on error-test.441  failed: No such device or address
+Command failed.
+umount: /dev/vdc: not mounted.

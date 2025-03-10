@@ -1,0 +1,6 @@
+QA output created by 032
+100 iterations
+mount: /vdc: /dev/vdc already mounted on /vdc.
+       dmesg(1) may have more information after failed mount system call.
+cycle mount failed
+(see /results/ext4/results-adv/generic/032.full for details)

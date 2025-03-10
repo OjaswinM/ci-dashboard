@@ -1,0 +1,10 @@
+Filesystem type is: ef53
+File size of /vdc/519-testfile is 0 (0 blocks of 4096 bytes)
+/vdc/519-testfile: 0 extents found
+Filesystem type is: ef53
+File size of /vdc/519-testfile is 5242880 (1280 blocks of 4096 bytes)
+ ext:     logical_offset:        physical_offset: length:   expected: flags:
+   0:        0..     255:      65536..     65791:    256:             merged
+   1:      512..     767:      66048..     66303:    256:             merged
+   2:     1024..    1279:      66560..     66815:    256:             merged,eof
+/vdc/519-testfile: 3 extents found

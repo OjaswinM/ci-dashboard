@@ -1,0 +1,7 @@
+056: ----------- Iteration: 1 ------------
+056: Resizing FS
+ext4_resize.c: EXT4_IOC_RESIZE_FS ioctl() failed with error: Operation not supported
+056: Resize operation not supported with sparse_super2
+056: Threw expected error 95 (EOPNOTSUPP)
+056: -------- Iterations Complete ---------
+056: Checking if FS is in consistent state

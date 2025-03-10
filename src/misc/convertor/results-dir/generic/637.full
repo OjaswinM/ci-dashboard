@@ -1,0 +1,56 @@
+
+Create file 0 in an open dir:
+getdents at offset 0 returned 48 bytes
+created entry 0
+entry 0 found as expected
+
+Remove file 10 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 10
+entry 10 not found as expected
+
+Remove file 20 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 20
+entry 20 not found as expected
+
+Remove file 30 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 30
+entry 30 not found as expected
+
+Remove file 40 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 40
+entry 40 not found as expected
+
+Remove file 50 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 50
+entry 50 not found as expected
+
+Remove file 60 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 60
+entry 60 not found as expected
+
+Remove file 70 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 70
+entry 70 not found as expected
+
+Remove file 80 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 80
+entry 80 not found as expected
+
+Remove file 90 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 90
+entry 90 not found as expected
+
+Remove file 100 in an open dir:
+getdents at offset 0 returned 192 bytes
+unlinked entry 100
+entry 100 not found as expected
+umount: /dev/vdc: not mounted.

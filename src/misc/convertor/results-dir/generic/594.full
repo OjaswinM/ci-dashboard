@@ -1,0 +1,20 @@
+tune2fs 1.47.1-rc2 (01-May-2024)
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o usrquota,grpquota,quota
+umount: /dev/vdc: not mounted.
+quotacheck: Cannot find filesystem to check or filesystem not mounted with quota option.
+quotaon: using . on /dev/vdc [/vdc]: File exists
+quotaon: using . on /dev/vdc [/vdc]: File exists
+Default block and inode grace timers are: 7days 7days
+quotacheck: Cannot find filesystem to check or filesystem not mounted with quota option.
+quotaon: using . on /dev/vdc [/vdc]: File exists
+quotaon: using . on /dev/vdc [/vdc]: File exists
+fsck from util-linux 2.38.1
+e2fsck 1.47.1-rc2 (01-May-2024)
+/dev/vdc: clean, 13/327680 files, 42659/1310720 blocks
+umount: /dev/vdc: not mounted.
+quotacheck: Cannot find filesystem to check or filesystem not mounted with quota option.
+quotaon: using . on /dev/vdc [/vdc]: File exists
+quotaon: using . on /dev/vdc [/vdc]: File exists
+quotacheck: Cannot find filesystem to check or filesystem not mounted with quota option.
+quotaon: using . on /dev/vdc [/vdc]: File exists
+quotaon: using . on /dev/vdc [/vdc]: File exists

@@ -1,0 +1,2 @@
+touch: cannot touch '/vdc/failed': Read-only file system
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,16 @@
+umount: /dev/vdc: not mounted.
+quotacheck: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+quotaon: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+wrote 1048576/1048576 bytes at offset 0
+1 MiB, 256 ops; 0.0006 sec (1.473 GiB/sec and 386123.6802 ops/sec)
+total 1028
+drwxr-xr-x 2 fsgqa root      60 Mar 10 08:54 .
+drwxrwxrwx 4 root  root    4096 Mar 10 08:54 ..
+-rw------- 1 fsgqa root 1048576 Mar 10 08:54 foo
+Group quota on /vdc (/dev/vdc)
+                        Blocks              
+Group ID     Used   Soft   Hard Warn/Grace   
+---------- --------------------------------- 
+root         1.0M      0      0  00 [------]
+fsgqa           0   100K   100K  00 [------]
+

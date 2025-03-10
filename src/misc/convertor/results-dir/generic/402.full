@@ -1,0 +1,22 @@
+min supported timestamp -2147483648
+max supported timestamp 15032385535
+In memory timestamps update test start
+Updating file: /vdc/test_1 to timestamp -2147483648
+Checking file: /vdc/test_1 Updated timestamp is -2147483648
+Updating file: /vdc/test_2 to timestamp 0
+Checking file: /vdc/test_2 Updated timestamp is 0
+Updating file: /vdc/test_3 to timestamp 15032385535
+Checking file: /vdc/test_3 Updated timestamp is 15032385535
+Updating file: /vdc/test_4 to timestamp 7516192767
+Checking file: /vdc/test_4 Updated timestamp is 7516192767
+Updating file: /vdc/test_5 to timestamp 15032385536
+Checking file: /vdc/test_5 Updated timestamp is 15032385535
+In memory timestamps update complete
+Unmounting and mounting scratch /vdc
+On disk timestamps update test start
+Checking file: /vdc/test_1 Updated timestamp is -2147483648
+Checking file: /vdc/test_2 Updated timestamp is 0
+Checking file: /vdc/test_3 Updated timestamp is 15032385535
+Checking file: /vdc/test_4 Updated timestamp is 7516192767
+Checking file: /vdc/test_5 Updated timestamp is 15032385535
+On disk timestamps update test complete

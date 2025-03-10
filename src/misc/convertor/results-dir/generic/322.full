@@ -1,0 +1,8 @@
+wrote 1048576/1048576 bytes at offset 0
+1 MiB, 256 ops; 0.0002 sec (3.513 GiB/sec and 920863.3094 ops/sec)
+wrote 1048576/1048576 bytes at offset 0
+1 MiB, 256 ops; 0.0004 sec (2.359 GiB/sec and 618357.4879 ops/sec)
+wrote 1048576/1048576 bytes at offset 2097152
+1 MiB, 256 ops; 0.0004 sec (2.022 GiB/sec and 530020.7039 ops/sec)
+umount: /vdc: not mounted.
+umount: /dev/vdc: not mounted.

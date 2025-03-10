@@ -1,0 +1,22 @@
+
+Before writeback
+
+Space used by file foo1:
+64K	SCRATCH_MNT/foo1
+Space used by file foo2:
+128K	SCRATCH_MNT/foo2
+Space used by file foo3:
+128K	SCRATCH_MNT/foo3
+Space used by file foo4:
+64K	SCRATCH_MNT/foo4
+
+After writeback
+
+Space used by file foo1:
+64K	SCRATCH_MNT/foo1
+Space used by file foo2:
+128K	SCRATCH_MNT/foo2
+Space used by file foo3:
+128K	SCRATCH_MNT/foo3
+Space used by file foo4:
+64K	SCRATCH_MNT/foo4

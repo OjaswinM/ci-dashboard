@@ -1,0 +1,53 @@
+Test chattr +A
+Before: -------A------e------- /vdc/testfile
+After : -------A------e------- /vdc/testfile
+Test chattr -A
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+sync
+Test chattr +A
+Before: -------A------e------- /vdc/testfile
+After : -------A------e------- /vdc/testfile
+Test chattr -A
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+Test chattr +S
+Before: --S-----------e------- /vdc/testfile
+After : --S-----------e------- /vdc/testfile
+Test chattr -S
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+sync
+Test chattr +S
+Before: --S-----------e------- /vdc/testfile
+After : --S-----------e------- /vdc/testfile
+Test chattr -S
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+Test chattr +a
+Before: -----a--------e------- /vdc/testfile
+After : -----a--------e------- /vdc/testfile
+Test chattr -a
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+sync
+Test chattr +a
+Before: -----a--------e------- /vdc/testfile
+After : -----a--------e------- /vdc/testfile
+Test chattr -a
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+Test chattr +i
+Before: ----i---------e------- /vdc/testfile
+After : ----i---------e------- /vdc/testfile
+Test chattr -i
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+sync
+Test chattr +i
+Before: ----i---------e------- /vdc/testfile
+After : ----i---------e------- /vdc/testfile
+Test chattr -i
+Before: --------------e------- /vdc/testfile
+After : --------------e------- /vdc/testfile
+umount: /dev/vdc: not mounted.

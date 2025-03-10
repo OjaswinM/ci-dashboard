@@ -1,0 +1,155 @@
+tune2fs 1.47.1-rc2 (01-May-2024)
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o usrquota,grpquota,quota
+umount: /dev/vdc: not mounted.
+quotacheck: Cannot find filesystem to check or filesystem not mounted with quota option.
+quotaon: using . on /dev/vdc [/vdc]: File exists
+quotaon: using . on /dev/vdc [/vdc]: File exists
+wrote 921600/921600 bytes at offset 0
+900 KiB, 225 ops; 0.0002 sec (3.276 GiB/sec and 858778.6260 ops/sec)
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     --     900    1000    4000              2     3   100       
+
+
+wrote 1024001/1024001 bytes at offset 0
+1000 KiB, 251 ops; 0.0001 sec (5.419 GiB/sec and 1426136.3636 ops/sec)
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    4000  00:00       2     3   100       
+
+
+setquota: Not setting inode grace time on /dev/vdc because softlimit is not exceeded.
+pwrite: Disk quota exceeded
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    4000   none       2     3   100       
+
+
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3   100  00:00
+
+
+setquota: Not setting block grace time on /dev/vdc because softlimit is not exceeded.
+touch: cannot touch 'SCRATCH_MNT/file5': Disk quota exceeded
+*** Report for user quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3   100   none
+
+
+wrote 921600/921600 bytes at offset 0
+900 KiB, 225 ops; 0.0003 sec (2.852 GiB/sec and 747508.3056 ops/sec)
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     --     900    1000    4000              2     3   100       
+
+
+wrote 1024001/1024001 bytes at offset 0
+1000 KiB, 251 ops; 0.0004 sec (2.282 GiB/sec and 600478.4689 ops/sec)
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    4000  00:00       2     3   100       
+
+
+setquota: Not setting inode grace time on /dev/vdc because softlimit is not exceeded.
+pwrite: Disk quota exceeded
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    4000   none       2     3   100       
+
+
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3   100  00:00
+
+
+setquota: Not setting block grace time on /dev/vdc because softlimit is not exceeded.
+touch: cannot touch 'SCRATCH_MNT/file5': Disk quota exceeded
+*** Report for group quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              4     3   100   none
+
+
+wrote 921600/921600 bytes at offset 0
+900 KiB, 225 ops; 0.0005 sec (1.601 GiB/sec and 419776.1194 ops/sec)
+*** Report for project quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Project         used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     --     900    1000    4000              3     3   100       
+#0        --      16       0       0              2     0     0       
+
+
+wrote 1024001/1024001 bytes at offset 0
+1000 KiB, 251 ops; 0.0004 sec (2.163 GiB/sec and 569160.9977 ops/sec)
+*** Report for project quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Project         used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    4000  00:00       3     3   100       
+#0        --      16       0       0              2     0     0       
+
+
+setquota: Not setting inode grace time on /dev/vdc because softlimit is not exceeded.
+pwrite: EDQUOT|ENOSPC
+*** Report for project quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Project         used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     +-    1004    1000    4000   none       3     3   100       
+#0        --      16       0       0              2     0     0       
+
+
+*** Report for project quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Project         used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              5     3   100  00:00
+#0        --      16       0       0              2     0     0       
+
+
+setquota: Not setting block grace time on /dev/vdc because softlimit is not exceeded.
+touch: cannot touch 'SCRATCH_MNT/t/file5': EDQUOT|ENOSPC
+*** Report for project quotas on device /dev/vdc
+Block grace time: 00:00; Inode grace time: 00:00
+                        Block limits                File limits
+Project         used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+fsgqa     -+    1004       0       0              5     3   100   none
+#0        --      16       0       0              2     0     0       
+
+

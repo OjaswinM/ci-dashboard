@@ -1,0 +1,13 @@
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/131072             done                            
+Creating filesystem with 131072 4k blocks and 8192 inodes
+Filesystem UUID: b4bf5740-4df7-4ac3-b1fe-e1661ca35d4e
+Superblock backups stored on blocks: 
+	4096, 12288, 20480, 28672, 36864, 102400, 110592
+
+Allocating group tables:  0/32     done                            
+Writing inode tables:  0/32     done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information:  0/32     done
+
+umount: /dev/vdc: not mounted.

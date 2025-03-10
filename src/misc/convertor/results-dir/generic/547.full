@@ -1,0 +1,4 @@
+Running fsstress with arguments:  -p 4 -n 100 -d /vdc/test -f mknod=0 -f symlink=0
+seed = 1740841830
+umount: /vdc: not mounted.
+umount: /dev/vdc: not mounted.

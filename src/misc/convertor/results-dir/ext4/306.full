@@ -1,0 +1,24 @@
+mke2fs 1.47.1-rc2 (01-May-2024)
+Extents are not enabled.  The file extent tree can be checksummed, whereas block maps cannot.  Not enabling extents reduces the coverage of metadata checksumming.  Pass -O extents to rectify.
+64-bit filesystem support is not enabled.  The larger fields afforded by this feature enable full-strength checksumming.  Pass -O 64bit to rectify.
+Discarding device blocks:      0/131072             done                            
+Creating filesystem with 131072 4k blocks and 32768 inodes
+Filesystem UUID: b725ce21-30f8-4d01-a924-fdefb9bbfd15
+Superblock backups stored on blocks: 
+	32768, 98304
+
+Allocating group tables: 0/4   done                            
+Writing inode tables: 0/4   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/4   done
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vdc        488M  488M     0 100% /vdc
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/vdc is mounted on /vdc; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/vdc is now 262144 (4k) blocks long.
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vdc        992M  488M  458M  52% /vdc
+umount: /dev/vdc: not mounted.

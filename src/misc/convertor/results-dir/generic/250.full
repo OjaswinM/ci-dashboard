@@ -1,0 +1,13 @@
+device-mapper: remove ioctl on error-test.250  failed: No such device or address
+Command failed.
+wrote 1/1 bytes at offset 8388608
+1.000000 bytes, 1 ops; 0.0000 sec (88.778 KiB/sec and 90909.0909 ops/sec)
+pwrite: Input/output error
+umount: /vdc: not mounted.
+fsck from util-linux 2.38.1
+e2fsck 1.47.1-rc2 (01-May-2024)
+/dev/vdc: clean, 14/50176 files, 17629/50176 blocks
+umount: /vdc: not mounted.
+device-mapper: remove ioctl on error-test.250  failed: No such device or address
+Command failed.
+umount: /dev/vdc: not mounted.

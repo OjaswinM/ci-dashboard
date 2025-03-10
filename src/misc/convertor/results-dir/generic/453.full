@@ -1,0 +1,232 @@
+Storing french_café.txt (66 72 65 6e 63 68 5f 63 61 66 c3 a9 2e 74 78 74) -> NFC
+Storing french_café.txt (66 72 65 6e 63 68 5f 63 61 66 65 cc 81 2e 74 78 74) -> NFD
+Storing chinese_ｶ.txt (63 68 69 6e 65 73 65 5f ef bd b6 2e 74 78 74) -> NFKC1
+Storing chinese_カ.txt (63 68 69 6e 65 73 65 5f e3 82 ab 2e 74 78 74) -> NFKC2
+Storing greek_ϓ.txt (67 72 65 65 6b 5f cf 93 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFC
+Storing greek_ϓ.txt (67 72 65 65 6b 5f cf 92 cc 81 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFD
+Storing greek_Ύ.txt (67 72 65 65 6b 5f ce 8e 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFKC
+Storing greek_Ύ.txt (67 72 65 65 6b 5f ce a5 cc 81 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFKD
+Storing arabic_ﷺ.txt (61 72 61 62 69 63 5f ef b7 ba 2e 74 78 74) -> ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM, NFC
+Storing arabic_صلى الله عليه وسلم.txt (61 72 61 62 69 63 5f d8 b5 d9 84 d9 89 20 d8 a7 d9 84 d9 84 d9 87 20 d8 b9 d9 84 d9 8a d9 87 20 d9 88 d8 b3 d9 84 d9 85 2e 74 78 74) -> ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM, NFKC
+Storing urk��moo (75 72 6b c0 af 6d 6f 6f) -> FAKESLASH
+Storing emoji_🦑🦋🦉🦒.txt (65 6d 6f 6a 69 5f f0 9f a6 91 f0 9f a6 8b f0 9f a6 89 f0 9f a6 92 2e 74 78 74) -> octopus butterfly owl giraffe emoji
+Storing linedraw_
+╔═══════════╗
+║ metatable ║
+╟───────────╢
+║ __index   ║
+╚═══════════╝
+.txt (6c 69 6e 65 64 72 61 77 5f 0a e2 95 94 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 97 0a e2 95 91 20 6d 65 74 61 74 61 62 6c 65 20 e2 95 91 0a e2 95 9f e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 95 a2 0a e2 95 91 20 5f 5f 69 6e 64 65 78 20 20 20 e2 95 91 0a e2 95 9a e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 9d 0a 2e 74 78 74) -> ugly box because we can
+Storing moo‮gnp.txt (6d 6f 6f e2 80 ae 67 6e 70 2e 74 78 74) -> Well say hello,
+Storing mootxt.png (6d 6f 6f 74 78 74 2e 70 6e 67) -> Harvey
+Storing mixed_tοp.txt (6d 69 78 65 64 5f 74 ce bf 70 2e 74 78 74) -> greek omicron instead of o
+Storing mixed_top.txt (6d 69 78 65 64 5f 74 6f 70 2e 74 78 74) -> greek omicron instead of o
+Storing hyphens_a‐b.txt (68 79 70 68 65 6e 73 5f 61 e2 80 90 62 2e 74 78 74) -> hyphens
+Storing hyphens_a-b.txt (68 79 70 68 65 6e 73 5f 61 2d 62 2e 74 78 74) -> hyphens
+Storing dz_digraph_dze.txt (64 7a 5f 64 69 67 72 61 70 68 5f 64 7a 65 2e 74 78 74) -> d-z digraph
+Storing dz_digraph_ʣe.txt (64 7a 5f 64 69 67 72 61 70 68 5f ca a3 65 2e 74 78 74) -> d-z digraph
+Storing inadequate_al.txt (69 6e 61 64 65 71 75 61 74 65 5f 61 6c 2e 74 78 74) -> is it l or is it 1
+Storing inadequate_a1.txt (69 6e 61 64 65 71 75 61 74 65 5f 61 31 2e 74 78 74) -> is it l or is it 1
+Storing prohibition_Rs.txt (70 72 6f 68 69 62 69 74 69 6f 6e 5f 52 73 2e 74 78 74) -> rupee symbol
+Storing prohibition_₨.txt (70 72 6f 68 69 62 69 74 69 6f 6e 5f e2 82 a8 2e 74 78 74) -> rupee symbol
+Storing zerojoin_moocow.txt (7a 65 72 6f 6a 6f 69 6e 5f 6d 6f 6f 63 6f 77 2e 74 78 74) -> zero width joiners
+Storing zerojoin_moo‍cow.txt (7a 65 72 6f 6a 6f 69 6e 5f 6d 6f 6f e2 80 8d 63 6f 77 2e 74 78 74) -> zero width joiners
+Storing combmark_လို.txt (63 6f 6d 62 6d 61 72 6b 5f e1 80 9c e1 80 ad e1 80 af 2e 74 78 74) -> combining marks
+Storing combmark_လုိ.txt (63 6f 6d 62 6d 61 72 6b 5f e1 80 9c e1 80 af e1 80 ad 2e 74 78 74) -> combining marks
+Storing .‍ (2e e2 80 8d) -> zero width joiners in dot entry
+Storing ..‍ (2e 2e e2 80 8d) -> zero width joiners in dotdot entry
+Storing toilet_bowl.🚽 (74 6f 69 6c 65 74 5f 62 6f 77 6c 2e f0 9f 9a bd) -> toilet emoji
+Storing toilet_bow‍l.🚽 (74 6f 69 6c 65 74 5f 62 6f 77 e2 80 8d 6c 2e f0 9f 9a bd) -> toilet emoji with zero width joiner
+Storing one_dot_leader/job offer․pdf (6a 6f 62 20 6f 66 66 65 72 e2 80 a4 70 64 66) -> one_dot_leader
+Storing small_full_stop/job offer﹒pdf (6a 6f 62 20 6f 66 66 65 72 ef b9 92 70 64 66) -> small_full_stop
+Storing fullwidth_full_stop/job offer．pdf (6a 6f 62 20 6f 66 66 65 72 ef bc 8e 70 64 66) -> fullwidth_full_stop
+Storing syriac_supralinear/job offer܁pdf (6a 6f 62 20 6f 66 66 65 72 dc 81 70 64 66) -> syriac_supralinear
+Storing syriac_sublinear/job offer܂pdf (6a 6f 62 20 6f 66 66 65 72 dc 82 70 64 66) -> syriac_sublinear
+Storing lisu_letter_tone/job offerꓸpdf (6a 6f 62 20 6f 66 66 65 72 ea 93 b8 70 64 66) -> lisu_letter_tone
+Storing actual_period/job offer.pdf (6a 6f 62 20 6f 66 66 65 72 2e 70 64 66) -> actual_period
+Storing one_dot_leader_zero_width_space/job offer․‍pdf (6a 6f 62 20 6f 66 66 65 72 e2 80 a4 e2 80 8d 70 64 66) -> one_dot_leader_zero_width_space
+Storing job offer․pdf (6a 6f 62 20 6f 66 66 65 72 e2 80 a4 70 64 66) -> one dot leader
+Storing job offer﹒pdf (6a 6f 62 20 6f 66 66 65 72 ef b9 92 70 64 66) -> small full stop
+Storing job offer．pdf (6a 6f 62 20 6f 66 66 65 72 ef bc 8e 70 64 66) -> fullwidth full stop
+Storing job offer܁pdf (6a 6f 62 20 6f 66 66 65 72 dc 81 70 64 66) -> syriac supralinear full stop
+Storing job offer܂pdf (6a 6f 62 20 6f 66 66 65 72 dc 82 70 64 66) -> syriac sublinear full stop
+Storing job offerꓸpdf (6a 6f 62 20 6f 66 66 65 72 ea 93 b8 70 64 66) -> lisu letter tone mya ti
+Storing job offer.pdf (6a 6f 62 20 6f 66 66 65 72 2e 70 64 66) -> actual period
+Storing llamapirate󠀁󠁔󠁨󠁥󠀠󠁳󠁡󠁬󠁥󠁳󠀠󠁦󠁯󠁲󠀠󠁓󠁥󠁡󠁴󠁴󠁬󠁥󠀠󠁷󠁥󠁲󠁥󠀠󠁕󠁓󠁄󠀠󠀱󠀲󠀰󠀰󠀰󠀰󠁿 (6c 6c 61 6d 61 70 69 72 61 74 65 f3 a0 80 81 f3 a0 81 94 f3 a0 81 a8 f3 a0 81 a5 f3 a0 80 a0 f3 a0 81 b3 f3 a0 81 a1 f3 a0 81 ac f3 a0 81 a5 f3 a0 81 b3 f3 a0 80 a0 f3 a0 81 a6 f3 a0 81 af f3 a0 81 b2 f3 a0 80 a0 f3 a0 81 93 f3 a0 81 a5 f3 a0 81 a1 f3 a0 81 b4 f3 a0 81 b4 f3 a0 81 ac f3 a0 81 a5 f3 a0 80 a0 f3 a0 81 b7 f3 a0 81 a5 f3 a0 81 b2 f3 a0 81 a5 f3 a0 80 a0 f3 a0 81 95 f3 a0 81 93 f3 a0 81 84 f3 a0 80 a0 f3 a0 80 b1 f3 a0 80 b2 f3 a0 80 b0 f3 a0 80 b0 f3 a0 80 b0 f3 a0 80 b0 f3 a0 81 bf) -> 
+Storing llamapirate (6c 6c 61 6d 61 70 69 72 61 74 65) -> 
+/vdc/test-453:
+total 28
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 .
+drwxr-xr-x  4 root root 4096 Mar 10 08:52 ..
+drwxr-xr-x  2 root root   60 Mar 10 08:52 ..‍
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .‍
+drwxr-xr-x  2 root root   60 Mar 10 08:52 actual_period
+-rw-r--r--  1 root root   50 Mar 10 08:52 arabic_صلى الله عليه وسلم.txt
+-rw-r--r--  1 root root   49 Mar 10 08:52 arabic_ﷺ.txt
+-rw-r--r--  1 root root    6 Mar 10 08:52 chinese_カ.txt
+-rw-r--r--  1 root root    6 Mar 10 08:52 chinese_ｶ.txt
+-rw-r--r--  1 root root   16 Mar 10 08:52 combmark_လို.txt
+-rw-r--r--  1 root root   16 Mar 10 08:52 combmark_လုိ.txt
+-rw-r--r--  1 root root   12 Mar 10 08:52 dz_digraph_dze.txt
+-rw-r--r--  1 root root   12 Mar 10 08:52 dz_digraph_ʣe.txt
+-rw-r--r--  1 root root   36 Mar 10 08:52 emoji_🦑🦋🦉🦒.txt
+-rw-r--r--  1 root root    4 Mar 10 08:52 french_café.txt
+-rw-r--r--  1 root root    4 Mar 10 08:52 french_café.txt
+drwxr-xr-x  2 root root   60 Mar 10 08:52 fullwidth_full_stop
+-rw-r--r--  1 root root   47 Mar 10 08:52 greek_Ύ.txt
+-rw-r--r--  1 root root   47 Mar 10 08:52 greek_Ύ.txt
+-rw-r--r--  1 root root   46 Mar 10 08:52 greek_ϓ.txt
+-rw-r--r--  1 root root   46 Mar 10 08:52 greek_ϓ.txt
+-rw-r--r--  1 root root    8 Mar 10 08:52 hyphens_a-b.txt
+-rw-r--r--  1 root root    8 Mar 10 08:52 hyphens_a‐b.txt
+-rw-r--r--  1 root root   19 Mar 10 08:52 inadequate_a1.txt
+-rw-r--r--  1 root root   19 Mar 10 08:52 inadequate_al.txt
+-rw-r--r--  1 root root   14 Mar 10 08:52 job offer.pdf
+-rw-r--r--  1 root root   29 Mar 10 08:52 job offer܁pdf
+-rw-r--r--  1 root root   27 Mar 10 08:52 job offer܂pdf
+-rw-r--r--  1 root root   15 Mar 10 08:52 job offer․pdf
+-rw-r--r--  1 root root   24 Mar 10 08:52 job offerꓸpdf
+-rw-r--r--  1 root root   16 Mar 10 08:52 job offer﹒pdf
+-rw-r--r--  1 root root   20 Mar 10 08:52 job offer．pdf
+-rw-r--r--  1 root root   24 Mar 10 08:52 linedraw_
+╔═══════════╗
+║ metatable ║
+╟───────────╢
+║ __index   ║
+╚═══════════╝
+.txt
+drwxr-xr-x  2 root root   60 Mar 10 08:52 lisu_letter_tone
+-rw-r--r--  1 root root    1 Mar 10 08:52 llamapirate
+-rw-r--r--  1 root root    1 Mar 10 08:52 llamapirate󠀁󠁔󠁨󠁥󠀠󠁳󠁡󠁬󠁥󠁳󠀠󠁦󠁯󠁲󠀠󠁓󠁥󠁡󠁴󠁴󠁬󠁥󠀠󠁷󠁥󠁲󠁥󠀠󠁕󠁓󠁄󠀠󠀱󠀲󠀰󠀰󠀰󠀰󠁿
+-rw-r--r--  1 root root   27 Mar 10 08:52 mixed_top.txt
+-rw-r--r--  1 root root   27 Mar 10 08:52 mixed_tοp.txt
+-rw-r--r--  1 root root    7 Mar 10 08:52 mootxt.png
+-rw-r--r--  1 root root   16 Mar 10 08:52 moo‮gnp.txt
+drwxr-xr-x  2 root root   60 Mar 10 08:52 one_dot_leader
+drwxr-xr-x  2 root root   60 Mar 10 08:52 one_dot_leader_zero_width_space
+-rw-r--r--  1 root root   13 Mar 10 08:52 prohibition_Rs.txt
+-rw-r--r--  1 root root   13 Mar 10 08:52 prohibition_₨.txt
+drwxr-xr-x  2 root root   60 Mar 10 08:52 small_full_stop
+drwxr-xr-x  2 root root   60 Mar 10 08:52 syriac_sublinear
+drwxr-xr-x  2 root root   60 Mar 10 08:52 syriac_supralinear
+-rw-r--r--  1 root root   13 Mar 10 08:52 toilet_bowl.🚽
+-rw-r--r--  1 root root   36 Mar 10 08:52 toilet_bow‍l.🚽
+-rw-r--r--  1 root root   10 Mar 10 08:52 urk��moo
+-rw-r--r--  1 root root   19 Mar 10 08:52 zerojoin_moocow.txt
+-rw-r--r--  1 root root   19 Mar 10 08:52 zerojoin_moo‍cow.txt
+
+/vdc/test-453/..‍:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   35 Mar 10 08:52 value
+
+/vdc/test-453/.‍:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   32 Mar 10 08:52 value
+
+/vdc/test-453/actual_period:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   14 Mar 10 08:52 job offer.pdf
+
+/vdc/test-453/fullwidth_full_stop:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   20 Mar 10 08:52 job offer．pdf
+
+/vdc/test-453/lisu_letter_tone:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   17 Mar 10 08:52 job offerꓸpdf
+
+/vdc/test-453/one_dot_leader:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   15 Mar 10 08:52 job offer․pdf
+
+/vdc/test-453/one_dot_leader_zero_width_space:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   32 Mar 10 08:52 job offer․‍pdf
+
+/vdc/test-453/small_full_stop:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   16 Mar 10 08:52 job offer﹒pdf
+
+/vdc/test-453/syriac_sublinear:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   17 Mar 10 08:52 job offer܂pdf
+
+/vdc/test-453/syriac_supralinear:
+total 5
+drwxr-xr-x  2 root root   60 Mar 10 08:52 .
+drwxr-xr-x 12 root root 4096 Mar 10 08:52 ..
+-rw-r--r--  1 root root   19 Mar 10 08:52 job offer܁pdf
+Testing french_café.txt (66 72 65 6e 63 68 5f 63 61 66 c3 a9 2e 74 78 74) -> NFC
+Testing french_café.txt (66 72 65 6e 63 68 5f 63 61 66 65 cc 81 2e 74 78 74) -> NFD
+Testing chinese_ｶ.txt (63 68 69 6e 65 73 65 5f ef bd b6 2e 74 78 74) -> NFKC1
+Testing chinese_カ.txt (63 68 69 6e 65 73 65 5f e3 82 ab 2e 74 78 74) -> NFKC2
+Testing greek_ϓ.txt (67 72 65 65 6b 5f cf 93 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFC
+Testing greek_ϓ.txt (67 72 65 65 6b 5f cf 92 cc 81 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFD
+Testing greek_Ύ.txt (67 72 65 65 6b 5f ce 8e 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFKC
+Testing greek_Ύ.txt (67 72 65 65 6b 5f ce a5 cc 81 2e 74 78 74) -> GREEK UPSILON WITH ACUTE AND HOOK SYMBOL, NFKD
+Testing arabic_ﷺ.txt (61 72 61 62 69 63 5f ef b7 ba 2e 74 78 74) -> ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM, NFC
+Testing arabic_صلى الله عليه وسلم.txt (61 72 61 62 69 63 5f d8 b5 d9 84 d9 89 20 d8 a7 d9 84 d9 84 d9 87 20 d8 b9 d9 84 d9 8a d9 87 20 d9 88 d8 b3 d9 84 d9 85 2e 74 78 74) -> ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM, NFKC
+Testing urk��moo (75 72 6b c0 af 6d 6f 6f) -> FAKESLASH
+Testing emoji_🦑🦋🦉🦒.txt (65 6d 6f 6a 69 5f f0 9f a6 91 f0 9f a6 8b f0 9f a6 89 f0 9f a6 92 2e 74 78 74) -> octopus butterfly owl giraffe emoji
+Testing linedraw_
+╔═══════════╗
+║ metatable ║
+╟───────────╢
+║ __index   ║
+╚═══════════╝
+.txt (6c 69 6e 65 64 72 61 77 5f 0a e2 95 94 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 97 0a e2 95 91 20 6d 65 74 61 74 61 62 6c 65 20 e2 95 91 0a e2 95 9f e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 94 80 e2 95 a2 0a e2 95 91 20 5f 5f 69 6e 64 65 78 20 20 20 e2 95 91 0a e2 95 9a e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 90 e2 95 9d 0a 2e 74 78 74) -> ugly box because we can
+Testing moo‮gnp.txt (6d 6f 6f e2 80 ae 67 6e 70 2e 74 78 74) -> Well say hello,
+Testing mootxt.png (6d 6f 6f 74 78 74 2e 70 6e 67) -> Harvey
+Testing mixed_tοp.txt (6d 69 78 65 64 5f 74 ce bf 70 2e 74 78 74) -> greek omicron instead of o
+Testing mixed_top.txt (6d 69 78 65 64 5f 74 6f 70 2e 74 78 74) -> greek omicron instead of o
+Testing hyphens_a‐b.txt (68 79 70 68 65 6e 73 5f 61 e2 80 90 62 2e 74 78 74) -> hyphens
+Testing hyphens_a-b.txt (68 79 70 68 65 6e 73 5f 61 2d 62 2e 74 78 74) -> hyphens
+Testing dz_digraph_dze.txt (64 7a 5f 64 69 67 72 61 70 68 5f 64 7a 65 2e 74 78 74) -> d-z digraph
+Testing dz_digraph_ʣe.txt (64 7a 5f 64 69 67 72 61 70 68 5f ca a3 65 2e 74 78 74) -> d-z digraph
+Testing inadequate_al.txt (69 6e 61 64 65 71 75 61 74 65 5f 61 6c 2e 74 78 74) -> is it l or is it 1
+Testing inadequate_a1.txt (69 6e 61 64 65 71 75 61 74 65 5f 61 31 2e 74 78 74) -> is it l or is it 1
+Testing prohibition_Rs.txt (70 72 6f 68 69 62 69 74 69 6f 6e 5f 52 73 2e 74 78 74) -> rupee symbol
+Testing prohibition_₨.txt (70 72 6f 68 69 62 69 74 69 6f 6e 5f e2 82 a8 2e 74 78 74) -> rupee symbol
+Testing zerojoin_moocow.txt (7a 65 72 6f 6a 6f 69 6e 5f 6d 6f 6f 63 6f 77 2e 74 78 74) -> zero width joiners
+Testing zerojoin_moo‍cow.txt (7a 65 72 6f 6a 6f 69 6e 5f 6d 6f 6f e2 80 8d 63 6f 77 2e 74 78 74) -> zero width joiners
+Testing combmark_လို.txt (63 6f 6d 62 6d 61 72 6b 5f e1 80 9c e1 80 ad e1 80 af 2e 74 78 74) -> combining marks
+Testing combmark_လုိ.txt (63 6f 6d 62 6d 61 72 6b 5f e1 80 9c e1 80 af e1 80 ad 2e 74 78 74) -> combining marks
+Testing .‍ (2e e2 80 8d) -> zero width joiners in dot entry
+Testing ..‍ (2e 2e e2 80 8d) -> zero width joiners in dotdot entry
+Testing toilet_bowl.🚽 (74 6f 69 6c 65 74 5f 62 6f 77 6c 2e f0 9f 9a bd) -> toilet emoji
+Testing toilet_bow‍l.🚽 (74 6f 69 6c 65 74 5f 62 6f 77 e2 80 8d 6c 2e f0 9f 9a bd) -> toilet emoji with zero width joiner
+Testing one_dot_leader/job offer․pdf (6a 6f 62 20 6f 66 66 65 72 e2 80 a4 70 64 66) -> one_dot_leader
+Testing small_full_stop/job offer﹒pdf (6a 6f 62 20 6f 66 66 65 72 ef b9 92 70 64 66) -> small_full_stop
+Testing fullwidth_full_stop/job offer．pdf (6a 6f 62 20 6f 66 66 65 72 ef bc 8e 70 64 66) -> fullwidth_full_stop
+Testing syriac_supralinear/job offer܁pdf (6a 6f 62 20 6f 66 66 65 72 dc 81 70 64 66) -> syriac_supralinear
+Testing syriac_sublinear/job offer܂pdf (6a 6f 62 20 6f 66 66 65 72 dc 82 70 64 66) -> syriac_sublinear
+Testing lisu_letter_tone/job offerꓸpdf (6a 6f 62 20 6f 66 66 65 72 ea 93 b8 70 64 66) -> lisu_letter_tone
+Testing actual_period/job offer.pdf (6a 6f 62 20 6f 66 66 65 72 2e 70 64 66) -> actual_period
+Testing one_dot_leader_zero_width_space/job offer․‍pdf (6a 6f 62 20 6f 66 66 65 72 e2 80 a4 e2 80 8d 70 64 66) -> one_dot_leader_zero_width_space
+Testing job offer․pdf (6a 6f 62 20 6f 66 66 65 72 e2 80 a4 70 64 66) -> one dot leader
+Testing job offer﹒pdf (6a 6f 62 20 6f 66 66 65 72 ef b9 92 70 64 66) -> small full stop
+Testing job offer．pdf (6a 6f 62 20 6f 66 66 65 72 ef bc 8e 70 64 66) -> fullwidth full stop
+Testing job offer܁pdf (6a 6f 62 20 6f 66 66 65 72 dc 81 70 64 66) -> syriac supralinear full stop
+Testing job offer܂pdf (6a 6f 62 20 6f 66 66 65 72 dc 82 70 64 66) -> syriac sublinear full stop
+Testing job offerꓸpdf (6a 6f 62 20 6f 66 66 65 72 ea 93 b8 70 64 66) -> lisu letter tone mya ti
+Testing job offer.pdf (6a 6f 62 20 6f 66 66 65 72 2e 70 64 66) -> actual period
+Testing llamapirate󠀁󠁔󠁨󠁥󠀠󠁳󠁡󠁬󠁥󠁳󠀠󠁦󠁯󠁲󠀠󠁓󠁥󠁡󠁴󠁴󠁬󠁥󠀠󠁷󠁥󠁲󠁥󠀠󠁕󠁓󠁄󠀠󠀱󠀲󠀰󠀰󠀰󠀰󠁿 (6c 6c 61 6d 61 70 69 72 61 74 65 f3 a0 80 81 f3 a0 81 94 f3 a0 81 a8 f3 a0 81 a5 f3 a0 80 a0 f3 a0 81 b3 f3 a0 81 a1 f3 a0 81 ac f3 a0 81 a5 f3 a0 81 b3 f3 a0 80 a0 f3 a0 81 a6 f3 a0 81 af f3 a0 81 b2 f3 a0 80 a0 f3 a0 81 93 f3 a0 81 a5 f3 a0 81 a1 f3 a0 81 b4 f3 a0 81 b4 f3 a0 81 ac f3 a0 81 a5 f3 a0 80 a0 f3 a0 81 b7 f3 a0 81 a5 f3 a0 81 b2 f3 a0 81 a5 f3 a0 80 a0 f3 a0 81 95 f3 a0 81 93 f3 a0 81 84 f3 a0 80 a0 f3 a0 80 b1 f3 a0 80 b2 f3 a0 80 b0 f3 a0 80 b0 f3 a0 80 b0 f3 a0 80 b0 f3 a0 81 bf) -> 
+Testing llamapirate (6c 6c 61 6d 61 70 69 72 61 74 65) -> 

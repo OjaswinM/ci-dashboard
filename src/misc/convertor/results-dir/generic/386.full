@@ -1,0 +1,8 @@
+tune2fs 1.47.1-rc2 (01-May-2024)
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o quota
+umount: /dev/vdc: not mounted.
+quotacheck: Cannot find filesystem to check or filesystem not mounted with quota option.
+quotaon: using . on /dev/vdc [/vdc]: File exists
+Setting up project test_project (path /vdc/test)...
+Processed 1 (/tmp/322216.projects and cmdline) paths for project test_project with recursion depth infinite (-1).
+umount: /dev/vdc: not mounted.

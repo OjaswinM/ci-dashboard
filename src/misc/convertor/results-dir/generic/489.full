@@ -1,0 +1,7 @@
+wrote 65536/65536 bytes at offset 0
+64 KiB, 16 ops; 0.0000 sec (2.035 GiB/sec and 533333.3333 ops/sec)
+umount: /vdc: not mounted.
+umount: /vdc: not mounted.
+device-mapper: remove ioctl on flakey-test.489  failed: No such device or address
+Command failed.
+umount: /dev/vdc: not mounted.

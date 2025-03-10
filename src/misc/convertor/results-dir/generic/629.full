@@ -1,0 +1,8 @@
+device-mapper: remove ioctl on error-test.629  failed: No such device or address
+Command failed.
+wrote 1048576/1048576 bytes at offset 0
+1 MiB, 1 ops; 0.0046 sec (213.038 MiB/sec and 213.0379 ops/sec)
+wrote 1048576/1048576 bytes at offset 0
+1 MiB, 1 ops; 0.0002 sec (3.604 GiB/sec and 3690.0369 ops/sec)
+umount: /vdc: not mounted.
+umount: /dev/vdc: not mounted.

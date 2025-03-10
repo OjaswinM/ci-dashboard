@@ -1,0 +1,5 @@
+wrote 545259520/545259520 bytes at offset 0
+520 MiB, 133120 ops; 0.1976 sec (2.570 GiB/sec and 673616.0308 ops/sec)
+mount: /vdc/mnt: can't read superblock on /dev/loop0.
+       dmesg(1) may have more information after failed mount system call.
+umount: /vdc/mnt: not mounted.

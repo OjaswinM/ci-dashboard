@@ -1,0 +1,18 @@
+a=1 d=1 c=1 i=1
+Trying +a +c +d +i
+Trying +a +c +d -i
+Trying +a +c -d +i
+Trying +a +c -d -i
+Trying +a -c +d +i
+Trying +a -c +d -i
+Trying +a -c -d +i
+Trying +a -c -d -i
+Trying -a +c +d +i
+Trying -a +c +d -i
+Trying -a +c -d +i
+Trying -a +c -d -i
+Trying -a -c +d +i
+Trying -a -c +d -i
+Trying -a -c -d +i
+Trying -a -c -d -i
+umount: /dev/vdc: not mounted.

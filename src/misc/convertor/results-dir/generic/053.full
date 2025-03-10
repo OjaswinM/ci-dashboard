@@ -1,0 +1,19 @@
+--- _scratch_mkfs
+--- _try_scratch_mount
+--- touch /vdc/test.0
+--- chacl u::r--,g::rwx,o::rw- /vdc/test.0
+--- touch /vdc/test.1
+--- chacl u::r-x,g::---,o::--- /vdc/test.1
+--- touch /vdc/test.2
+--- chacl u::---,g::r-x,o::--- /vdc/test.2
+--- touch /vdc/test.3
+--- chacl u::---,g::---,o::r-x /vdc/test.3
+--- touch /vdc/test.4
+--- chacl u::---,g::r-x,o::rwx /vdc/test.4
+--- touch /vdc/test.5
+--- chacl u::---,g::---,o::---,u:14:r-x,m::rwx /vdc/test.5
+--- touch /vdc/test.6
+--- chacl u::rwx,g::r-x,o::r-- /vdc/test.6
+--- touch /vdc/test.7
+--- chacl u::---,g::---,o::---,g:14:r-x,m::-w- /vdc/test.7
+--- _check_scratch_fs

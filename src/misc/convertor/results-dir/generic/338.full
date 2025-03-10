@@ -1,0 +1,6 @@
+device-mapper: remove ioctl on error-test.338  failed: No such device or address
+Command failed.
+ls: reading directory '/vdc': Input/output error
+total 0
+stat: Input/output error
+umount: /dev/vdc: not mounted.

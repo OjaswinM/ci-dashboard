@@ -1,0 +1,7 @@
+Opening "/vdc"
+Calling XFS_IOC_GOINGDOWN
+Opening "/vdc"
+Calling XFS_IOC_GOINGDOWN
+Opening "/vdc"
+Calling XFS_IOC_GOINGDOWN
+umount: /dev/vdc: not mounted.

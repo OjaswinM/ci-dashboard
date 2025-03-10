@@ -1,0 +1,3 @@
+umount: bad usage
+Try 'umount --help' for more information.
+umount: /dev/vdc: not mounted.

@@ -1,0 +1,8 @@
+Using seed 27347
+Testing readdir...
+Reading valid entries passed.
+Reading random positions passed.
+Testing getdents...
+Reading valid entries passed.
+Reading random positions passed.
+umount: /dev/vdc: not mounted.

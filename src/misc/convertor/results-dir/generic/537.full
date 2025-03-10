@@ -1,0 +1,4 @@
+/vdc: 4.8 GiB (5194002432 bytes) trimmed
+/vdc: 4.8 GiB (5194002432 bytes) trimmed
+fstrim: /vdc: FITRIM ioctl failed: Read-only file system
+umount: /dev/vdc: not mounted.

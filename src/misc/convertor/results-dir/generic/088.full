@@ -1,0 +1,10 @@
+---------- 1 500 users 0 Mar 10 08:47 /vdd/t_access
+access(/vdd/t_access, 0) returns 0
+access(/vdd/t_access, R_OK) returns 0
+access(/vdd/t_access, W_OK) returns 0
+access(/vdd/t_access, X_OK) returns -1
+access(/vdd/t_access, R_OK | W_OK) returns 0
+access(/vdd/t_access, R_OK | X_OK) returns -1
+access(/vdd/t_access, W_OK | X_OK) returns -1
+access(/vdd/t_access, R_OK | W_OK | X_OK) returns -1
+umount: /dev/vdc: not mounted.

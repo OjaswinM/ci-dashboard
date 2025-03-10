@@ -1,0 +1,623 @@
++++ truncate image file to 8192
++++ create fs on image file 4096
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:    0/4096         done                            
+Creating filesystem with 4096 4k blocks and 4096 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 8192
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 8192 (4k) blocks long.
+
++++ umount fs
++++ check fs
+++ set cluster size to 4096
++++ truncate image file to 24576
++++ create fs on image file 16384
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/16384           done                            
+Creating filesystem with 16384 4k blocks and 16384 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 24576
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 24576 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 32767
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 32767
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 32767 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 32768
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 32768
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 32768 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 65536
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 65536
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 65536 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 491521
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 491521
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 491520 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 507904
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 507904
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 507904 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 524288
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 524288
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 524288 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 5242880
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 5242880
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 3
+The filesystem on /dev/loop0 is now 5242880 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 41943040
++++ create fs on image file 24576
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/24576           done                            
+Creating filesystem with 24576 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 41943040
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 20
+The filesystem on /dev/loop0 is now 41943040 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 786432
++++ create fs on image file 6400
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:    0/6400         done                            
+Creating filesystem with 6400 4k blocks and 6400 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 786432
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 786432 (4k) blocks long.
+
++++ umount fs
++++ check fs
+++ set cluster size to 16384
++++ truncate image file to 98304
++++ create fs on image file 65536
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/65536           done                            
+Creating filesystem with 65536 4k blocks and 16384 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 98304
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 98304 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 131068
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 131068
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 131068 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 131072
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 131072
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 131072 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 262144
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 262144
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 262144 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 1966084
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 1966084
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 1966080 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 2031616
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 2031616
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 2031616 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 2097152
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 2097152
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 2097152 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 20971520
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 20971520
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 3
+The filesystem on /dev/loop0 is now 20971520 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 167772160
++++ create fs on image file 98304
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/98304           done                            
+Creating filesystem with 98304 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 167772160
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 20
+The filesystem on /dev/loop0 is now 167772160 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 3145728
++++ create fs on image file 25600
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:     0/25600           done                            
+Creating filesystem with 25600 4k blocks and 6400 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 3145728
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 3145728 (4k) blocks long.
+
++++ umount fs
++++ check fs
+++ set cluster size to 65536
++++ truncate image file to 393216
++++ create fs on image file 262144
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/262144             done                            
+Creating filesystem with 262144 4k blocks and 16384 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 393216
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 393216 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 524272
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 524272
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 524272 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 524288
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 524288
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 524288 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 1048576
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 1048576
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 1048576 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 7864336
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 7864336
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 7864320 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 8126464
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 8126464
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 8126464 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 8388608
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 8388608
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 8388608 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 83886080
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 83886080
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 3
+The filesystem on /dev/loop0 is now 83886080 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 671088640
++++ create fs on image file 393216
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/393216             done                            
+Creating filesystem with 393216 4k blocks and 24576 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 671088640
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 20
+The filesystem on /dev/loop0 is now 671088640 (4k) blocks long.
+
++++ umount fs
++++ check fs
++++ truncate image file to 12582912
++++ create fs on image file 102400
+mke2fs 1.47.1-rc2 (01-May-2024)
+Discarding device blocks:      0/102400             done                            
+Creating filesystem with 102400 4k blocks and 6400 inodes
+
+Allocating group tables: 0/1   done                            
+Writing inode tables: 0/1   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/1   done
+
++++ mount image file
++++ resize fs to 12582912
+resize2fs 1.47.1-rc2 (01-May-2024)
+Filesystem at /dev/loop0 is mounted on /vdc/032.mnt; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/loop0 is now 12582912 (4k) blocks long.
+
++++ umount fs
++++ check fs

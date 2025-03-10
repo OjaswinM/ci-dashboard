@@ -1,0 +1,24 @@
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o usrquota,grpquota
+umount: /dev/vdc: not mounted.
+quotacheck: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+quotaon: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o rw,rw -o rw
+umount: /dev/vdc: not mounted.
+quotacheck: Mountpoint (or device) /vdc not found or has no quota enabled.
+quotacheck: Cannot find filesystem to check or filesystem not mounted with quota option.
+quotaon: Mountpoint (or device) /vdc not found or has no quota enabled.
+quotaon: Mountpoint (or device) /vdc not found or has no quota enabled.
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o rw,rw -o rw -o usrquota
+umount: /dev/vdc: not mounted.
+quotacheck: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+quotaon: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o rw,rw -o rw -o grpquota -o grpquota
+umount: /dev/vdc: not mounted.
+quotacheck: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+quotaon: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+MOUNT_OPTIONS = -o acl,user_xattr -o block_validity -o rw,rw -o rw -o usrquota,grpquota -o usrquota,grpquota -o usrquota,grpquota
+umount: /dev/vdc: not mounted.
+quotacheck: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+quotaon: Your kernel probably supports ext4 quota feature but you are using external quota files. Please switch your filesystem to use ext4 quota feature as external quota files on ext4 are deprecated. You can enable the feature by unmounting the file system and running 'tune2fs -O quota <device>'.
+umount: /dev/vdc: not mounted.
+umount: /dev/vdc: not mounted.

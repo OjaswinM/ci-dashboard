@@ -1,0 +1,7 @@
+wrote 2048/2048 bytes at offset 4096
+2 KiB, 1 ops; 0.0000 sec (177.557 MiB/sec and 90909.0909 ops/sec)
+wrote 2048/2048 bytes at offset 65536
+2 KiB, 1 ops; 0.0000 sec (977 MiB/sec and 500000.0000 ops/sec)
+wrote 2048/2048 bytes at offset 67584
+2 KiB, 1 ops; 0.0002 sec (7.844 MiB/sec and 4016.0643 ops/sec)
+umount: /dev/vdc: not mounted.

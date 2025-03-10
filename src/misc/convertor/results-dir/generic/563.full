@@ -1,0 +1,24 @@
+wrote 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0046 sec (1.683 GiB/sec and 441284.2060 ops/sec)
+read 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0215 sec (371.350 MiB/sec and 95065.6826 ops/sec)
+wrote 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0043 sec (1.785 GiB/sec and 468007.3126 ops/sec)
+wrote 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0043 sec (1.776 GiB/sec and 465666.2119 ops/sec)
+wrote 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0046 sec (1.681 GiB/sec and 440714.4394 ops/sec)
+read 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0018 sec (4.200 GiB/sec and 1101075.2688 ops/sec)
+wrote 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0021 sec (3.710 GiB/sec and 972459.6391 ops/sec)
+wrote 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0027 sec (2.806 GiB/sec and 735632.1839 ops/sec)
+read 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0091 sec (879.121 MiB/sec and 225054.9451 ops/sec)
+read 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0015 sec (5.076 GiB/sec and 1330734.2430 ops/sec)
+wrote 8388608/8388608 bytes at offset 0
+8 MiB, 2048 ops; 0.0019 sec (3.942 GiB/sec and 1033299.6973 ops/sec)
+umount: /vdc: not mounted.
+umount: /dev/vdc: not mounted.

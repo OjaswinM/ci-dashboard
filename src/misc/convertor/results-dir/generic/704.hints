@@ -1,0 +1,3 @@
+HINT: You _MAY_ be missing kernel fix:
+      7c71ee78031c xfs: allow logical-sector sized O_DIRECT
+

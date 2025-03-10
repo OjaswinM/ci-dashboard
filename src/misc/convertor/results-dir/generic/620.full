@@ -1,0 +1,10 @@
+device-mapper: remove ioctl on huge-test.620  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on huge-test-zero.620  failed: No such device or address
+Command failed.
+umount: /vdc: not mounted.
+device-mapper: remove ioctl on huge-test.620  failed: No such device or address
+Command failed.
+device-mapper: remove ioctl on huge-test-zero.620  failed: No such device or address
+Command failed.
+umount: /dev/vdc: not mounted.

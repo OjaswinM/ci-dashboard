@@ -1,0 +1,4 @@
+ERROR: FS_IOC_ENABLE_VERITY failed on '/vdc/file.fsv': Invalid argument
+block_size=16384 is unsupported
+ERROR: FS_IOC_ENABLE_VERITY failed on '/vdc/file.fsv': Invalid argument
+block_size=65536 is unsupported

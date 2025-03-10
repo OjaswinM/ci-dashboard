@@ -1,0 +1,5 @@
+wrote 4096/4096 bytes at offset 0
+4 KiB, 1 ops; 0.0000 sec (488 MiB/sec and 125000.0000 ops/sec)
+wrote 4096/4096 bytes at offset 0
+4 KiB, 1 ops; 0.0000 sec (651.042 MiB/sec and 166666.6667 ops/sec)
+umount: /dev/vdc: not mounted.

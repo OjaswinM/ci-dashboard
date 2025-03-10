@@ -1,0 +1,22 @@
++ inline file
+wrote 1/1 bytes at offset 0
+1.000000 bytes, 1 ops; 0.0019 sec (501.504514 bytes/sec and 501.5045 ops/sec)
++ extents file
+wrote 4096/4096 bytes at offset 0
+4 KiB, 1 ops; 0.0019 sec (1.954 MiB/sec and 500.2501 ops/sec)
++ extent tree file
+wrote 2793472/2793472 bytes at offset 0
+3 MiB, 3 ops; 0.0036 sec (723.537 MiB/sec and 814.7746 ops/sec)
++ inline dir
++ block dir
++ htree dir
++ inline symlink
++ extents symlink
++ special
++ local attr
++ block attr
++ empty file
++ real files
+FILL FS
+src_sz 2733 fs_sz 4788244 nr 87
+e2image 1.47.1-rc2 (01-May-2024)

@@ -1,0 +1,29 @@
+umount: /dev/vdc: not mounted.
+total 24M
+drwx------ 2 root root  12K Mar 10 08:46 lost+found
+-rw-r--r-- 1 root root   71 Mar 10 08:46 pids
+-rw------- 1 root root    4 Mar 10 08:46 testfile.164895
+-rw------- 1 root root   80 Mar 10 08:46 testfile.164896
+-rw------- 1 root root 1.2K Mar 10 08:46 testfile.164897
+-rw------- 1 root root 157K Mar 10 08:46 testfile.164898
+-rw------- 1 root root  12M Mar 10 08:46 testfile.164899
+-rw------- 1 root root  49K Mar 10 08:46 testfile.164900
+*** PIDs file
+164895 1
+164896 20
+164897 300
+164898 40000
+164899 3000000
+164900 12345
+checking pid=164895 size=1
+status: 0
+checking pid=164896 size=20
+status: 0
+checking pid=164897 size=300
+status: 0
+checking pid=164898 size=40000
+status: 0
+checking pid=164899 size=3000000
+status: 0
+checking pid=164900 size=12345
+status: 0
