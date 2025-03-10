@@ -64,7 +64,6 @@ const TestSchema = z.object({
 
 export const TestRunSchema = z.object({
   run_id: z.string()
-    .datetime()
     .refine(date => !isNaN(Date.parse(date)), {
       message: "Invalid datetime format. Must be ISO 8601 format"
     })
