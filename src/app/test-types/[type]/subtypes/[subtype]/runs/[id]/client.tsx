@@ -415,10 +415,10 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
 
       {/* Log Viewer Modal */}
       {selectedTest && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50">
+        <div className="fixed inset-0 backdrop-blur-[2px] bg-black/20 transition-opacity z-50">
           <div className="fixed inset-0 z-50 overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <div className="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
+              <div className="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-[80vw]">
                 <div className="bg-white dark:bg-gray-800 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="flex justify-between items-center mb-4">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -443,7 +443,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                   
                   <div className="flex space-x-4">
                     {/* Log Files List */}
-                    <div className="w-1/3 border-r dark:border-gray-700 pr-4">
+                    <div className="w-1/6 border-r dark:border-gray-700 pr-4">
                       <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Log Files</h4>
                       {loadingLogs && logFiles.length === 0 ? (
                         <div className="flex justify-center items-center h-32">
@@ -471,11 +471,11 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                     </div>
 
                     {/* Log Content */}
-                    <div className="w-2/3 overflow-hidden">
+                    <div className="w-5/6 overflow-hidden">
                       <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Log Content</h4>
                       <div
                         ref={logViewerRef}
-                        className="font-mono text-sm bg-gray-100 dark:bg-gray-900 rounded-md p-4 h-[500px] overflow-auto whitespace-pre"
+                        className="font-mono text-sm bg-gray-100 dark:bg-gray-900 rounded-md p-4 h-[65vh] overflow-auto whitespace-pre"
                         onScroll={handleLogScroll}
                       >
                         {selectedLogFile ? (
