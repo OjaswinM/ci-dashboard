@@ -380,38 +380,27 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                   {filteredResults?.map((result) => (
                     <div 
                       key={result.id} 
-                      className={`p-4 rounded-lg border w-full h-full cursor-pointer hover:shadow-md transition-shadow ${result.status === 'fail' ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}
+                      className={`p-4 rounded-lg border w-full h-full transition-all ${result.status === 'fail' ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'} ${result.hasLog ? 'cursor-pointer hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md' : ''}`}
                       onClick={() => handleViewLogs(result)}
                     >
                       <div className="flex flex-col h-full justify-between">
                         <p className="text-xs font-medium text-gray-900 dark:text-white truncate">
                           {result.name}
                         </p>
-                        <div className="flex justify-between items-center text-[10px]">
-                          <span className={`px-1.5 py-0.5 inline-flex leading-4 font-semibold rounded-full ${getStatusColor(result.status)}`}>
-                            {result.status}
-                          </span>
-                          <span className="text-gray-500 dark:text-gray-400">
-                            {formatDuration(result.duration)}
-                          </span>
-                        </div>
-                        <div className="flex gap-1 text-[10px] mt-1 items-center">
-                          {result.errorMessage && (
-                            <span className="text-red-600 dark:text-red-400 truncate flex-1" title={result.errorMessage}>
+                        {result.errorMessage && (
+                          <div className="text-[10px] mt-1">
+                            <span className="text-red-600 dark:text-red-400 truncate block" title={result.errorMessage}>
                               {result.errorMessage}
                             </span>
-                          )}
-                          {result.hasLog && (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleViewLogs(result);
-                              }}
-                              className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 shrink-0"
-                            >
-                              Log→
-                            </button>
-                          )}
+                          </div>
+                        )}
+                        <div className="flex justify-between items-center text-xs mt-auto">
+                          <span className={`px-2 py-0.5 inline-flex leading-5 font-semibold rounded-full ${getStatusColor(result.status)}`}>
+                            {result.status}
+                          </span>
+                          <span className="text-gray-500 dark:text-gray-400 font-medium">
+                            {formatDuration(result.duration)}
+                          </span>
                         </div>
                       </div>
                     </div>

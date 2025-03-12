@@ -67,10 +67,7 @@ export async function GET(
     });
 
     if (!testResult?.log?.logPath) {
-      return NextResponse.json(
-        { error: 'Test log not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ files: [], content: '' });
     }
 
     // Resolve the log path - if it's relative, make it absolute
