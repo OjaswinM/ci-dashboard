@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { LogFile, LogContent } from '@/lib/validation/test-logs';
 
 import { type SingleTestRun, type TestResult, type SingleTestRunResponse } from '@/lib/validation/test-result';
+import { useRouter } from 'next/navigation';
 
 interface TestRunClientProps {
   testType: string;
@@ -27,6 +28,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
   const [hasMoreLogs, setHasMoreLogs] = React.useState(false);
   const [nextCursor, setNextCursor] = React.useState<string | undefined>();
   const logViewerRef = React.useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   React.useEffect(() => {
     fetchTestRun();
@@ -159,7 +161,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
     }
   };
 
-  const filteredResults = run?.results.filter(result => {
+  const filteredResults = run?.results?.filter(result => {
     const matchesStatus = selectedStatus === 'all' || result.status.toLowerCase() === selectedStatus.toLowerCase();
     const matchesSearch = result.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (result.errorMessage?.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -197,13 +199,21 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
             >
               ← Back
             </Link>
+            <button
+              onClick={() => router.push(`/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}/runs/compare/${runId}`)} 
+              className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Compare with Another Run
+            </button>
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                 Test Run Details
               </h1>
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                {subtypeName} • {formatDate(run.timestamp)}
-              </p>
+              {run && (
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  {subtypeName} • {formatDate(run.timestamp)}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -222,7 +232,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                   Total Tests
                 </p>
                 <p className="mt-1 text-2xl font-semibold text-gray-900 dark:text-white">
-                  {run.stats.totalTests}
+                  {run?.stats?.totalTests}
                 </p>
               </div>
               <div>
@@ -230,11 +240,11 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                   Pass Rate
                 </p>
                 <p className={`mt-1 text-2xl font-semibold ${
-                  run.stats.passRate >= 90 ? 'text-green-600 dark:text-green-400' :
-                  run.stats.passRate >= 75 ? 'text-yellow-600 dark:text-yellow-400' :
+                  run?.stats?.passRate >= 90 ? 'text-green-600 dark:text-green-400' :
+                  run?.stats?.passRate >= 75 ? 'text-yellow-600 dark:text-yellow-400' :
                   'text-red-600 dark:text-red-400'
                 }`}>
-                  {formatPercentage(run.stats.passRate)}
+                  {formatPercentage(run?.stats?.passRate || 0)}
                 </p>
               </div>
               <div>
@@ -242,7 +252,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                   Duration
                 </p>
                 <p className="mt-1 text-2xl font-semibold text-gray-900 dark:text-white">
-                  {formatDuration(run.stats.totalDuration)}
+                  {formatDuration(run?.stats?.totalDuration || 0)}
                 </p>
               </div>
               {run.version && (
@@ -272,7 +282,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                     Kernel Release
                   </p>
                   <p className="mt-1 text-sm text-gray-900 dark:text-white">
-                    {run.environment.kernelRelease}
+                    {run?.environment?.kernelRelease}
                   </p>
                 </div>
                 <div>
@@ -280,7 +290,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                     Distro
                   </p>
                   <p className="mt-1 text-sm text-gray-900 dark:text-white">
-                    {run.environment.distro}
+                    {run?.environment?.distro}
                   </p>
                 </div>
                 <div>
@@ -288,7 +298,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                     vmlinux Path
                   </p>
                   <p className="mt-1 text-sm text-gray-900 dark:text-white break-all">
-                    {run.environment.vmlinuxPath || "N/A"}
+                    {run?.environment?.vmlinuxPath || "N/A"}
                   </p>
                 </div>
                 <div>
@@ -296,7 +306,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                     Config Path
                   </p>
                   <p className="mt-1 text-sm text-gray-900 dark:text-white break-all">
-                    {run.environment.configPath || "N/A"}
+                    {run?.environment?.configPath || "N/A"}
                   </p>
                 </div>
                 <div>
@@ -304,7 +314,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                     Architecture
                   </p>
                   <p className="mt-1 text-sm text-gray-900 dark:text-white">
-                    {run.environment.architecture || "N/A"}
+                    {run?.environment?.architecture || "N/A"}
                   </p>
                 </div>
                 <div>
@@ -312,7 +322,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                     Config Name
                   </p>
                   <p className="mt-1 text-sm text-gray-900 dark:text-white">
-                    {run.environment.configName || "N/A"}
+                    {run?.environment?.configName || "N/A"}
                   </p>
                 </div>
               </div>
