@@ -380,11 +380,11 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                   No test results match your filters.
                 </p>
               ) : (
-                <div className="grid auto-rows-[120px] grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4 justify-items-stretch">
+                <div className="grid grid-cols-[repeat(8,minmax(120px,1fr))] gap-4 justify-items-stretch">
                   {filteredResults?.map((result) => (
                     <div 
                       key={result.id} 
-                      className={`p-4 rounded-lg border w-full h-full transition-all ${result.status === 'fail' ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'} ${result.hasLog ? 'cursor-pointer hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md' : ''}`}
+                      className={`p-4 rounded-lg border w-full aspect-square transition-all ${result.status === 'fail' ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'} ${result.hasLog ? 'cursor-pointer hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md' : ''}`}
                       onClick={() => handleViewLogs(result)}
                     >
                       <div className="flex flex-col h-full justify-between">
