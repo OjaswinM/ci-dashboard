@@ -74,14 +74,16 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
 
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error('Failed to fetch log files');
+        console.error('Failed to fetch log files');
+        setLogFiles([]);
+        return;
       }
 
       const data = await response.json();
       setLogFiles(data.files);
     } catch (err) {
       console.error('Error fetching log files:', err);
-      setError(err instanceof Error ? err.message : 'Failed to fetch log files');
+      setLogFiles([]);
     } finally {
       setLoadingLogs(false);
     }
@@ -119,7 +121,9 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
       setNextCursor(data.nextCursor);
     } catch (err) {
       console.error('Error fetching log content:', err);
-      setError(err instanceof Error ? err.message : 'Failed to fetch log content');
+      setLogContent('');
+      setHasMoreLogs(false);
+      setNextCursor(undefined);
     } finally {
       setLoadingLogs(false);
     }
