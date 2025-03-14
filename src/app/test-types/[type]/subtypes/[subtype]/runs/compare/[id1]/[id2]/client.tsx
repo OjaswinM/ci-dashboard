@@ -301,7 +301,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
             </div>
           </div>
           <div className="border-t border-gray-200 dark:border-gray-700 p-4">
-            <div className="grid auto-rows-[120px] grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4 justify-items-stretch">
+            <div className="grid grid-cols-[repeat(8,minmax(120px,1fr))] gap-4 justify-items-stretch">
               {filteredResults?.map((result) => {
                 const comparisonStatus = getComparisonStatus(result);
                 const compareResult = compareRun.results.find(cr => cr.name === result.name);
@@ -309,7 +309,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
                   <div 
                     key={result.name}
                     onClick={() => result.hasLog && handleViewLogs(result)}
-                    className={`p-4 rounded-lg border w-full h-full transition-all ${getComparisonColor(comparisonStatus)} border-gray-200 dark:border-gray-700 ${result.hasLog ? 'cursor-pointer hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md' : ''}`}
+                    className={`p-4 rounded-lg border w-full aspect-square transition-all ${getComparisonColor(comparisonStatus)} border-gray-200 dark:border-gray-700 ${result.hasLog ? 'cursor-pointer hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md' : ''}`}
                   >
                     <div className="flex flex-col h-full justify-between">
                       <p className="text-xs font-medium text-gray-900 dark:text-white truncate" title={result.name}>
