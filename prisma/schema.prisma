@@ -19,7 +19,7 @@ model TestType {
 model TestSubtype {
   id          String     @id @default(uuid())
   testTypeId  String
-  name        String     @unique
+  name        String
   description String?
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
