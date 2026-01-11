@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS TestSubtype (
 // ----------- TestRun -----------
 db.prepare(`
 CREATE TABLE IF NOT EXISTS TestRun (
-  id TEXT PRIMARY KEY,
+  id TEXT NOT NULL,
   testSubtypeId TEXT NOT NULL,
   runTimestamp TEXT NOT NULL,
   version TEXT,
@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS TestRun (
   totalDuration REAL,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
   updatedAt TEXT NOT NULL DEFAULT (datetime('now')),
+  PRIMARY KEY (id, testSubtypeId),
   FOREIGN KEY(testSubtypeId) REFERENCES TestSubtype(id)
 )
 `).run();
@@ -55,8 +56,9 @@ CREATE TABLE IF NOT EXISTS TestRun (
 // ----------- TestEnvironment -----------
 db.prepare(`
 CREATE TABLE IF NOT EXISTS TestEnvironment (
-  id TEXT PRIMARY KEY,
-  testRunId TEXT UNIQUE NOT NULL,
+  id TEXT NOT NULL,
+  testRunId TEXT NOT NULL,
+  testSubtypeId TEXT NOT NULL,
   vmlinuxPath TEXT,
   configPath TEXT,
   distro TEXT,
@@ -65,22 +67,25 @@ CREATE TABLE IF NOT EXISTS TestEnvironment (
   configName TEXT,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
   updatedAt TEXT NOT NULL DEFAULT (datetime('now')),
-  FOREIGN KEY(testRunId) REFERENCES TestRun(id)
+  PRIMARY KEY (id, testRunId),
+  FOREIGN KEY(testRunId, testSubtypeId) REFERENCES TestRun(id, testSubtypeId)
 )
 `).run();
 
 // ----------- TestResult -----------
 db.prepare(`
 CREATE TABLE IF NOT EXISTS TestResult (
-  id TEXT PRIMARY KEY,
+  id TEXT NOT NULL,
   testRunId TEXT NOT NULL,
+  testSubtypeId TEXT NOT NULL,
   name TEXT NOT NULL,
   status TEXT NOT NULL,
   duration REAL NOT NULL,
   hasLog INTEGER NOT NULL, -- 0 = false, 1 = true
   errorMessage TEXT,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
-  FOREIGN KEY(testRunId) REFERENCES TestRun(id)
+  PRIMARY KEY (id, testRunId),
+  FOREIGN KEY(testRunId, testSubtypeId) REFERENCES TestRun(id, testSubtypeId)
 )
 `).run();
 
@@ -91,11 +96,13 @@ CREATE TABLE IF NOT EXISTS TestResult (
 // ----------- TestLog -----------
 db.prepare(`
 CREATE TABLE IF NOT EXISTS TestLog (
-  id TEXT PRIMARY KEY,
-  testResultId TEXT UNIQUE NOT NULL,
+  id TEXT NOT NULL,
+  testResultId TEXT NOT NULL,
+  testRunId TEXT NOT NULL,
   logPath TEXT NOT NULL,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
-  FOREIGN KEY(testResultId) REFERENCES TestResult(id)
+  PRIMARY KEY (id, testResultId),
+  FOREIGN KEY(testResultId, testRunId) REFERENCES TestResult(id, testRunId)
 )
 `).run();
 

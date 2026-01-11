@@ -1,6 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useParams } from "react-router-dom";
 import RootLayout from "./app/layout";
 import Home from "./app/page";
+import TestTypeClient from "./app/test-types/[type]/client";
+
+const TestTypeRoute = () => {
+  const params = useParams();
+  return <TestTypeClient testType={decodeURIComponent(params.type!)} />;
+};
 
 export const router = createBrowserRouter([
   {
@@ -8,6 +14,10 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <Home /> },
+      { 
+        path: "test-types/:type",
+        element: <TestTypeRoute />
+      },
     ],
   },
 ]);
