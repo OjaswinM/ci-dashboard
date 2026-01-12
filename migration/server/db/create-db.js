@@ -39,9 +39,8 @@ CREATE TABLE IF NOT EXISTS TestSubtype (
 db.prepare(`
 CREATE TABLE IF NOT EXISTS TestRun (
   id TEXT NOT NULL,
+  label TEXT NOT NULL,
   testSubtypeId TEXT NOT NULL,
-  runTimestamp TEXT NOT NULL,
-  version TEXT,
   totalTests INTEGER,
   passedTests INTEGER,
   failedTests INTEGER,

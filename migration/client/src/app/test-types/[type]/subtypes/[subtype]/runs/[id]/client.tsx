@@ -1,20 +1,54 @@
-"use client";
-
 import React from 'react';
 import type { ReactElement } from 'react';
-import Link from 'next/link';
-import { LogFile, LogContent } from '@/lib/validation/test-logs';
+import { Link, useParams } from 'react-router-dom';
 
-import { type SingleTestRun, type TestResult, type SingleTestRunResponse } from '@/lib/validation/test-result';
-import { useRouter } from 'next/navigation';
+type TestResult = {
+  id: string;
+  name: string;
+  status: string;
+  duration: number;
+  errorMessage?: string;
+  hasLog: boolean;
+  logPath?: string;
+};
 
-interface TestRunClientProps {
-  testType: string;
-  subtypeName: string;
-  runId: string;
-}
+type SingleTestRun = {
+  id: string;
+  timestamp?: string;
+  stats: {
+    totalTests: number;
+    passedTests: number;
+    failedTests: number;
+    totalDuration: number;
+    passRate: number;
+  };
+  environment?: {
+    vmlinuxPath?: string;
+    configPath?: string;
+    distro?: string;
+    kernelRelease?: string;
+    architecture?: string;
+    configName?: string;
+  };
+  results: TestResult[];
+};
 
-export default function TestRunClient({ testType, subtypeName, runId }: TestRunClientProps): ReactElement {
+type LogFile = {
+  path: string;
+  size: number;
+};
+
+type LogContent = {
+  content: string;
+  nextCursor?: string;
+};
+
+export default function TestRunClient(): ReactElement {
+  const { type: testType, subtype: subtypeName, id: runId } = useParams();
+  
+  if (!testType || !subtypeName || !runId) {
+    return <div>Invalid URL parameters</div>;
+  }
   const [run, setRun] = React.useState<SingleTestRun | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
@@ -28,7 +62,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
   const [hasMoreLogs, setHasMoreLogs] = React.useState(false);
   const [nextCursor, setNextCursor] = React.useState<string | undefined>();
   const logViewerRef = React.useRef<HTMLDivElement>(null);
-  const router = useRouter();
+
 
   React.useEffect(() => {
     fetchTestRun();
@@ -63,7 +97,8 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
     return new Date(dateString).toLocaleString();
   };
 
-  const handleViewLogs = async (test: TestResult) => {
+  const handleViewLogs = async (test: TestResult | null) => {
+    if (!test) return;
     setSelectedTest(test);
     setLoadingLogs(true);
     try {
@@ -96,13 +131,13 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
     await fetchLogContent(filePath);
   };
 
-  const fetchLogContent = async (filePath: string, cursor?: string) => {
-    if (!selectedTest) return;
+  const fetchLogContent = async (filePath: string | undefined, cursor?: string) => {
+    if (!selectedTest || !filePath) return;
 
     setLoadingLogs(true);
     try {
       const url = new URL(
-        `/api/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}/runs/${runId}/test-logs/${encodeURIComponent(selectedTest.name)}`,
+        `/api/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}/runs/${runId}/test-logs/${encodeURIComponent(selectedTest.name)}/content`,
         window.location.origin
       );
       url.searchParams.set('filePath', filePath);
@@ -117,7 +152,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
 
       const data: LogContent = await response.json();
       setLogContent(prev => cursor ? prev + data.content : data.content);
-      setHasMoreLogs(data.hasMore);
+      setHasMoreLogs(!!data.nextCursor);
       setNextCursor(data.nextCursor);
     } catch (err) {
       console.error('Error fetching log content:', err);
@@ -200,7 +235,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center">
                 <Link
-                  href={`/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}`}
+                  to={`/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}`}
                   className="mr-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                 >
                   ← Back
@@ -467,7 +502,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                                 : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
                               }`}
                             >
-                              <div className="truncate">{file.path}</div>
+                              <div className="truncate">{file.path.split('/').pop()}</div>
                               <div className="text-xs text-gray-500 dark:text-gray-400">
                                 {(file.size / 1024).toFixed(1)}KB
                               </div>
@@ -482,7 +517,7 @@ export default function TestRunClient({ testType, subtypeName, runId }: TestRunC
                       <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Log Content</h4>
                       <div
                         ref={logViewerRef}
-                        className="font-mono text-sm bg-gray-100 dark:bg-gray-900 rounded-md p-4 h-[65vh] overflow-auto whitespace-pre"
+                        className="font-mono text-sm bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md p-4 h-[65vh] overflow-auto whitespace-pre"
                         onScroll={handleLogScroll}
                       >
                         {selectedLogFile ? (

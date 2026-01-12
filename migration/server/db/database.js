@@ -2,6 +2,7 @@ import Database from 'better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { randomUUID } from 'crypto';
+import { fileHandler } from '../lib/logs/file-handler.js';
 
 // Get the directory name of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -51,7 +52,169 @@ export function getSubtypesForTestType(testTypeId) {
   return { subtypes };
 }
 
+// Get test runs for a specific subtype
+export function getRunsForSubtypes(subtypeId) {
+  // First check if subtype exists
+  const subtype = db.prepare('SELECT id FROM TestSubtype WHERE id = ?').get(subtypeId);
+  
+  if (!subtype) {
+    return { error: 'Subtype not found', status: 404 };
+  }
+
+  // Get all test runs for this subtype with their environment and stats
+  const runs = db.prepare(`
+    SELECT 
+      tr.id,
+      tr.label,
+      tr.totalTests,
+      tr.passedTests,
+      tr.failedTests,
+      tr.totalDuration,
+      tr.createdAt,
+      te.vmlinuxPath,
+      te.configPath,
+      te.distro,
+      te.kernelRelease,
+      te.architecture,
+      te.configName
+    FROM TestRun tr
+    LEFT JOIN TestEnvironment te ON tr.id = te.testRunId
+    WHERE tr.testSubtypeId = ?
+    ORDER BY tr.createdAt DESC
+  `).all(subtypeId);
+
+  return { runs };
+}
+
+// Get a single test run with all its details
+export function getTestRun(runId, subtypeId) {
+  // First check if test run exists for this subtype
+  const run = db.prepare(`
+    SELECT 
+      tr.id,
+      tr.label,
+      tr.totalTests,
+      tr.passedTests,
+      tr.failedTests,
+      tr.totalDuration,
+      tr.createdAt,
+      te.vmlinuxPath,
+      te.configPath,
+      te.distro,
+      te.kernelRelease,
+      te.architecture,
+      te.configName
+    FROM TestRun tr
+    LEFT JOIN TestEnvironment te ON tr.id = te.testRunId
+    WHERE tr.id = ? AND tr.testSubtypeId = ?
+  `).get(runId, subtypeId);
+
+  if (!run) {
+    return { error: 'Test run not found', status: 404 };
+  }
+
+  // Get test results for this run
+  const results = db.prepare(`
+    SELECT
+      tr.id,
+      tr.name,
+      tr.status,
+      tr.duration,
+      tr.errorMessage,
+      tr.hasLog,
+      tl.logPath
+    FROM TestResult tr
+    LEFT JOIN TestLog tl ON tr.id = tl.testResultId
+    WHERE tr.testRunId = ?
+    ORDER BY tr.name ASC, tr.status DESC, tr.duration DESC
+  `).all(runId);
+
+  return {
+    run: {
+      ...run,
+      results,
+      stats: {
+        totalTests: run.totalTests,
+        passedTests: run.passedTests,
+        failedTests: run.failedTests,
+        totalDuration: run.totalDuration,
+        passRate: run.totalTests > 0 ? (run.passedTests / run.totalTests) * 100 : 0
+      },
+      environment: run.kernelRelease ? {
+        vmlinuxPath: run.vmlinuxPath,
+        configPath: run.configPath,
+        distro: run.distro,
+        kernelRelease: run.kernelRelease,
+        architecture: run.architecture,
+        configName: run.configName
+      } : null
+    }
+  };
+}
+
 // Ingest test run data
+import fs from 'fs/promises';
+
+// Get log files for a specific test in a test run
+export async function getTestLogFiles(runId, testName) {
+  // First get the log path from the database
+  const result = db.prepare(`
+    SELECT tl.logPath
+    FROM TestLog tl
+    JOIN TestResult tr ON tr.id = tl.testResultId
+    WHERE tr.testRunId = ? AND tr.name = ?
+  `).get(runId, testName);
+
+  if (!result?.logPath) {
+    return { error: 'No log files found', status: 404 };
+  }
+
+  try {
+    const files = await fileHandler.getLogFiles(result.logPath);
+    return { files };
+  } catch (error) {
+    console.error('Error getting log files:', error);
+    return { error: 'Failed to access log files', status: 500 };
+  }
+}
+
+// Get content of a specific log file
+export async function getLogContent(runId, testName, filePath) {
+  // First verify the test exists and has logs
+  const result = db.prepare(`
+    SELECT tl.logPath
+    FROM TestLog tl
+    JOIN TestResult tr ON tr.id = tl.testResultId
+    WHERE tr.testRunId = ? AND tr.name = ?
+  `).get(runId, testName);
+
+  if (!result?.logPath) {
+    return { error: 'Log not found', status: 404 };
+  }
+
+  const basePath = path.isAbsolute(result.logPath)
+    ? path.dirname(result.logPath)
+    : path.resolve(process.cwd(), path.dirname(result.logPath));
+
+  const resolvedPath = path.isAbsolute(filePath)
+    ? filePath
+    : path.join(basePath, filePath);
+
+  // Security check: ensure the requested file is within the base path
+  const relativePath = path.relative(basePath, resolvedPath);
+  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+    return { error: 'Invalid file path', status: 400 };
+  }
+
+  try {
+    const content = await fileHandler.getLogContent(resolvedPath);
+    return content;
+  } catch (error) {
+    console.error('Error reading log content:', error);
+    return { error: 'Failed to read log content', status: 500 };
+  }
+}
+
 export function ingestTestRun(data) {
   // Prepared statements for lookups
   const getTestTypeByName = db.prepare(`
@@ -79,7 +242,7 @@ export function ingestTestRun(data) {
   `);
 
   const insertTestRun = db.prepare(`
-    INSERT INTO TestRun (id, testSubtypeId, runTimestamp, totalTests, passedTests, failedTests, totalDuration)
+    INSERT INTO TestRun (id, testSubtypeId, label, totalTests, passedTests, failedTests, totalDuration)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
 
@@ -125,6 +288,7 @@ export function ingestTestRun(data) {
         console.log('Checking run_id:', run.run_id, 'for subtype:', subtypeId);
         const existingRun = getTestRunBySubtypeId.get(run.run_id, subtypeId);
         console.log('Existing run:', existingRun);
+
         if (existingRun) {
           console.log('Found existing run, returning 409');
           db.prepare('ROLLBACK').run();
@@ -132,8 +296,11 @@ export function ingestTestRun(data) {
             error: `Run ID ${run.run_id} already exists for test type '${testTypeData.type}' and subtype '${testTypeData.subtype.name}'`, 
             status: 409 
           };
-        }         // Insert test run
+        }
+        
+        // Insert test run
         const runId = run.run_id;
+        const label = run.label;
         const passedTests = run.tests.filter(t => t.status === 'pass').length;
         const totalTests = run.tests.length;
         const totalDuration = run.tests.reduce((sum, t) => sum + t.duration, 0);
@@ -141,7 +308,7 @@ export function ingestTestRun(data) {
         insertTestRun.run(
           runId,
           subtypeId,
-          run.run_id,
+          label,
           totalTests,
           passedTests,
           totalTests - passedTests,

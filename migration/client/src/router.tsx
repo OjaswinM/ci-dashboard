@@ -2,6 +2,8 @@ import { createBrowserRouter, useParams } from "react-router-dom";
 import RootLayout from "./app/layout";
 import Home from "./app/page";
 import TestTypeClient from "./app/test-types/[type]/client";
+import TestRunsClient from "./app/test-types/[type]/subtypes/[subtype]/client";
+import TestRunClient from "./app/test-types/[type]/subtypes/[subtype]/runs/[id]/client";
 
 const TestTypeRoute = () => {
   const params = useParams();
@@ -17,6 +19,14 @@ export const router = createBrowserRouter([
       { 
         path: "test-types/:type",
         element: <TestTypeRoute />
+      },
+      {
+        path: "test-types/:type/subtypes/:subtype",
+        element: <TestRunsClient />
+      },
+      {
+        path: "test-types/:type/subtypes/:subtype/runs/:id",
+        element: <TestRunClient />
       },
     ],
   },
