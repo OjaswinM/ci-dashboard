@@ -1,7 +1,5 @@
-"use client";
-
 import React from 'react';
-import { LogFile } from '@/lib/validation/test-logs';
+import type { LogFile } from '@/types/logs';
 
 interface LogViewerProps {
   testName: string;
@@ -11,8 +9,11 @@ interface LogViewerProps {
   logContent: string;
   selectedLogFile: string | null;
   onSelectLogFile: (filePath: string) => void;
-  onLogScroll: () => void;
 }
+
+const getBasename = (path: string) => {
+  return path.split('/').pop() || path;
+};
 
 export default function LogViewer({
   testName,
@@ -22,7 +23,6 @@ export default function LogViewer({
   logContent,
   selectedLogFile,
   onSelectLogFile,
-  onLogScroll,
 }: LogViewerProps) {
   const logViewerRef = React.useRef<HTMLDivElement>(null);
 
@@ -65,7 +65,7 @@ export default function LogViewer({
                     : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
                 }`}
               >
-                <div className="truncate">{file.path}</div>
+                <div className="truncate">{getBasename(file.path)}</div>
                 <div className="text-xs text-gray-500 dark:text-gray-400">
                   {(file.size / 1024).toFixed(1)}KB
                 </div>
@@ -80,8 +80,7 @@ export default function LogViewer({
         <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Log Content</h4>
         <div
           ref={logViewerRef}
-          className="font-mono text-sm bg-gray-100 dark:bg-gray-900 rounded-md p-4 h-[65vh] overflow-auto whitespace-pre"
-          onScroll={onLogScroll}
+          className="font-mono text-sm bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-md p-4 h-[65vh] overflow-auto whitespace-pre"
         >
           {loadingLogs ? (
             <div className="flex justify-center items-center h-full">

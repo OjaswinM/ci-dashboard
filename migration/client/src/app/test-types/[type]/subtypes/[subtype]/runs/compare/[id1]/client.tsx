@@ -1,19 +1,28 @@
-"use client";
+import React, { type ReactElement } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
-import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { type TestRun, TestRunsResponseSchema } from '@/lib/validation/test-runs-api';
-
-interface CompareClientProps {
-  type: string;
-  subtype: string;
-  id1: string;
+interface Run {
+  id: string;
+  label: string;
+  totalTests: number;
+  passedTests: number;
+  failedTests: number;
+  totalDuration: number;
+  createdAt: string;
+  vmlinuxPath: string | null;
+  configPath: string | null;
+  distro: string | null;
+  kernelRelease: string | null;
+  architecture: string | null;
+  configName: string | null;
 }
 
-export default function CompareClient({ type, subtype, id1 }: CompareClientProps) {
-  const router = useRouter();
-  const [compareRuns, setCompareRuns] = React.useState<TestRun[]>([]);
+
+export default function CompareClient(): ReactElement {
+  const navigate = useNavigate();
+  const params = useParams();
+  const { type, subtype, id1 } = params;
+  const [compareRuns, setCompareRuns] = React.useState<Run[]>([]);
   const [selectedCompareRunId, setSelectedCompareRunId] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
@@ -25,7 +34,7 @@ export default function CompareClient({ type, subtype, id1 }: CompareClientProps
 
   React.useEffect(() => {
     if (selectedCompareRunId) {
-      router.push(`/test-types/${encodeURIComponent(type)}/subtypes/${encodeURIComponent(subtype)}/runs/compare/${id1}/${selectedCompareRunId}`);
+      navigate(`/test-types/${encodeURIComponent(type || '')}/subtypes/${encodeURIComponent(subtype || '')}/runs/compare/${id1 || ''}/${selectedCompareRunId}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCompareRunId]);
@@ -33,7 +42,7 @@ export default function CompareClient({ type, subtype, id1 }: CompareClientProps
   const fetchCompareRuns = async () => {
     try {
       const url = new URL(
-        `/api/test-types/${encodeURIComponent(type)}/subtypes/${encodeURIComponent(subtype)}/runs`,
+        `/api/test-types/${encodeURIComponent(type ?? '')}/subtypes/${encodeURIComponent(subtype ?? '')}/runs`,
         window.location.origin
       );
 
@@ -43,8 +52,7 @@ export default function CompareClient({ type, subtype, id1 }: CompareClientProps
       }
 
       const data = await response.json();
-      const validatedData = TestRunsResponseSchema.parse(data);
-      setCompareRuns(validatedData.items.filter((r: TestRun) => r.id !== id1));
+      setCompareRuns(data.runs.filter((r: Run) => r.id !== id1));
     } catch (err) {
       console.error('Error fetching comparison runs:', err);
       setError(err instanceof Error ? err.message : 'An error occurred');
@@ -83,7 +91,7 @@ export default function CompareClient({ type, subtype, id1 }: CompareClientProps
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-4">
             <Link
-              href={`/test-types/${encodeURIComponent(type)}/subtypes/${encodeURIComponent(subtype)}/runs/${id1}`}
+              to={`/test-types/${encodeURIComponent(type || '')}/subtypes/${encodeURIComponent(subtype || '')}/runs/${id1 || ''}`}
               className="mr-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             >
               ← Back to Run
@@ -96,12 +104,12 @@ export default function CompareClient({ type, subtype, id1 }: CompareClientProps
             <select
               value={selectedCompareRunId || ''}
               onChange={(e) => setSelectedCompareRunId(e.target.value || null)}
-              className="px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md"
+              className="px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-white"
             >
               <option value="">Select run to compare</option>
               {compareRuns.map((run) => (
                 <option key={run.id} value={run.id}>
-                  {formatDate(run.timestamp)}
+                  {`${run.label} - ${formatDate(run.createdAt)}`}
                 </option>
               ))}
             </select>

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ReactElement } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 type TestResult = {
   id: string;
@@ -14,7 +14,7 @@ type TestResult = {
 
 type SingleTestRun = {
   id: string;
-  timestamp?: string;
+  createdAt?: string;
   stats: {
     totalTests: number;
     passedTests: number;
@@ -45,6 +45,7 @@ type LogContent = {
 
 export default function TestRunClient(): ReactElement {
   const { type: testType, subtype: subtypeName, id: runId } = useParams();
+  const navigate = useNavigate();
   
   if (!testType || !subtypeName || !runId) {
     return <div>Invalid URL parameters</div>;
@@ -246,13 +247,13 @@ export default function TestRunClient(): ReactElement {
                   </h1>
                   {run && (
                     <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                      {subtypeName} • {formatDate(run.timestamp)}
+                      {subtypeName} • {formatDate(run.createdAt)}
                     </p>
                   )}
                 </div>
               </div>
               <button
-                onClick={() => router.push(`/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}/runs/compare/${runId}`)} 
+                onClick={() => navigate(`/test-types/${encodeURIComponent(testType)}/subtypes/${encodeURIComponent(subtypeName)}/runs/compare/${runId}`)}
                 className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center space-x-2"
               >
                 <span>Compare with Another Run</span>

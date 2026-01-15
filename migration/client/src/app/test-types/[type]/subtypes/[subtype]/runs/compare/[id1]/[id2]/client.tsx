@@ -1,26 +1,120 @@
-"use client";
-
 import React from 'react';
-import Link from 'next/link';
-import { type SingleTestRun, type TestResult } from '@/lib/validation/test-result';
-import { LogFile, LogContent } from '@/lib/validation/test-logs';
+import { Link, useParams } from 'react-router-dom';
 import LogViewer from '@/components/LogViewer';
 
-interface ComparisonClientProps {
-  type: string;
-  subtype: string;
-  id1: string;
-  id2: string;
-  currentRun: SingleTestRun;
-  compareRun: SingleTestRun;
-  stats: {
-    newFailures: number;
-    newPasses: number;
-    newSkips: number;
-  };
-}
+type TestResult = {
+  id: string;
+  name: string;
+  status: string;
+  duration: number;
+  errorMessage?: string;
+  hasLog: boolean;
+  logPath?: string;
+};
 
-export default function ComparisonClient({ type, subtype, id1, id2, currentRun, compareRun, stats }: ComparisonClientProps) {
+type SingleTestRun = {
+  id: string;
+  timestamp?: string;
+  stats: {
+    totalTests: number;
+    passedTests: number;
+    failedTests: number;
+    totalDuration: number;
+    passRate: number;
+  };
+  environment?: {
+    vmlinuxPath?: string;
+    configPath?: string;
+    distro?: string;
+    kernelRelease?: string;
+    architecture?: string;
+    configName?: string;
+  };
+  results: TestResult[];
+};
+
+type LogFile = {
+  path: string;
+  size: number;
+};
+
+type LogContent = {
+  content: string;
+  nextCursor?: string;
+};
+
+export default function ComparisonClient() {
+  const { type, subtype, id1, id2 } = useParams();
+  const [currentRun, setCurrentRun] = React.useState<SingleTestRun | null>(null);
+  const [compareRun, setCompareRun] = React.useState<SingleTestRun | null>(null);
+  const [stats, setStats] = React.useState({
+    newFailures: 0,
+    newPasses: 0,
+    newSkips: 0,
+  });
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
+
+  const calculateStatusChanges = React.useCallback((current: SingleTestRun | null, compare: SingleTestRun | null) => {
+    if (!current || !compare) return;
+
+    let newFailures = 0;
+    let newPasses = 0;
+    let newSkips = 0;
+
+    current.results.forEach(currentResult => {
+      const compareResult = compare.results.find(cr => cr.name === currentResult.name);
+      if (!compareResult) return;
+
+      const currentStatus = currentResult.status.toLowerCase();
+      const compareStatus = compareResult.status.toLowerCase();
+
+      if (currentStatus === 'fail' && compareStatus === 'pass') {
+        newFailures++;
+      } else if (currentStatus === 'pass' && compareStatus === 'fail') {
+        newPasses++;
+      } else if (currentStatus === 'skip' && compareStatus !== 'skip') {
+        newSkips++;
+      }
+    });
+
+    setStats({ newFailures, newPasses, newSkips });
+  }, []);
+
+  React.useEffect(() => {
+    const fetchRuns = async () => {
+      try {
+        setLoading(true);
+        const [currentResponse, compareResponse] = await Promise.all([
+          fetch(`/api/test-types/${encodeURIComponent(type || '')}/subtypes/${encodeURIComponent(subtype || '')}/runs/${id1}`),
+          fetch(`/api/test-types/${encodeURIComponent(type || '')}/subtypes/${encodeURIComponent(subtype || '')}/runs/${id2}`)
+        ]);
+
+        if (!currentResponse.ok || !compareResponse.ok) {
+          throw new Error('Failed to fetch test runs');
+        }
+
+        const [currentData, compareData] = await Promise.all([
+          currentResponse.json(),
+          compareResponse.json()
+        ]);
+
+        const currentRunData = currentData.run;
+        const compareRunData = compareData.run;
+        setCurrentRun(currentRunData);
+        setCompareRun(compareRunData);
+        calculateStatusChanges(currentRunData, compareRunData);
+      } catch (err) {
+        console.error('Error fetching runs:', err);
+        setError(err instanceof Error ? err.message : 'An error occurred');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRuns();
+  }, [type, subtype, id1, id2]);
+
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
       case 'pass':
@@ -35,7 +129,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
   };
 
   const getComparisonStatus = (result: TestResult) => {
-    const compareResult = compareRun.results.find(cr => cr.name === result.name);
+    const compareResult = compareRun?.results.find(cr => cr.name === result.name);
     if (!compareResult) return null;
 
     if (result.status.toLowerCase() === 'fail' && compareResult.status.toLowerCase() === 'pass') {
@@ -61,7 +155,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
     }
   };
 
-  const changedResults = currentRun.results.filter(result => {
+  const changedResults = currentRun?.results.filter(result => {
     return getComparisonStatus(result) !== null;
   });
 
@@ -74,16 +168,12 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
   const [currentSelectedLogFile, setCurrentSelectedLogFile] = React.useState<string | null>(null);
   const [currentLogContent, setCurrentLogContent] = React.useState<string>('');
   const [loadingCurrentLogs, setLoadingCurrentLogs] = React.useState(false);
-  const [currentHasMoreLogs, setCurrentHasMoreLogs] = React.useState(false);
-  const [currentNextCursor, setCurrentNextCursor] = React.useState<string | undefined>();
 
   // Compare run log state
   const [compareLogFiles, setCompareLogFiles] = React.useState<LogFile[]>([]);
   const [compareSelectedLogFile, setCompareSelectedLogFile] = React.useState<string | null>(null);
   const [compareLogContent, setCompareLogContent] = React.useState<string>('');
   const [loadingCompareLogs, setLoadingCompareLogs] = React.useState(false);
-  const [compareHasMoreLogs, setCompareHasMoreLogs] = React.useState(false);
-  const [compareNextCursor, setCompareNextCursor] = React.useState<string | undefined>();
 
   const handleViewLogs = async (test: TestResult) => {
     setSelectedTest(test);
@@ -95,14 +185,14 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
 
   const fetchTestLogs = async (
     test: TestResult,
-    runId: string,
+    runId: string | undefined,
     setLoading: (loading: boolean) => void,
     setFiles: (files: LogFile[]) => void
   ) => {
     setLoading(true);
     try {
       const url = new URL(
-        `/api/test-types/${encodeURIComponent(type)}/subtypes/${encodeURIComponent(subtype)}/runs/${runId}/test-logs/${encodeURIComponent(test.name)}`,
+        `/api/test-types/${encodeURIComponent(type || '')}/subtypes/${encodeURIComponent(subtype || '')}/runs/${runId || ''}/test-logs/${encodeURIComponent(test.name)}`,
         window.location.origin
       );
 
@@ -122,25 +212,19 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
 
   const fetchLogContent = async (
     filePath: string,
-    runId: string,
-    cursor: string | undefined,
+    runId: string | undefined,
     setLoading: (loading: boolean) => void,
     setContent: (content: string) => void,
-    setHasMore: (hasMore: boolean) => void,
-    setNextCursor: (cursor: string | undefined) => void
   ) => {
     if (!selectedTest) return;
 
     setLoading(true);
     try {
       const url = new URL(
-        `/api/test-types/${encodeURIComponent(type)}/subtypes/${encodeURIComponent(subtype)}/runs/${runId}/test-logs/${encodeURIComponent(selectedTest.name)}`,
+        `/api/test-types/${encodeURIComponent(type || '')}/subtypes/${encodeURIComponent(subtype || '')}/runs/${runId || ''}/test-logs/${encodeURIComponent(selectedTest.name)}/content`,
         window.location.origin
       );
       url.searchParams.set('filePath', filePath);
-      if (cursor) {
-        url.searchParams.set('cursor', cursor);
-      }
 
       const response = await fetch(url);
       if (!response.ok) {
@@ -148,9 +232,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
       }
 
       const data: LogContent = await response.json();
-      setContent(prev => cursor ? prev + data.content : data.content);
-      setHasMore(data.hasMore);
-      setNextCursor(data.nextCursor);
+      setContent(data.content);
     } catch (err) {
       console.error('Error fetching log content:', err);
     } finally {
@@ -158,64 +240,30 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
     }
   };
 
-  const handleCurrentLogScroll = () => {
-    if (!currentHasMoreLogs || loadingCurrentLogs || !currentSelectedLogFile || !selectedTest) return;
-    fetchLogContent(
-      currentSelectedLogFile,
-      id1,
-      currentNextCursor,
-      setLoadingCurrentLogs,
-      setCurrentLogContent,
-      setCurrentHasMoreLogs,
-      setCurrentNextCursor
-    );
-  };
-
-  const handleCompareLogScroll = () => {
-    if (!compareHasMoreLogs || loadingCompareLogs || !compareSelectedLogFile || !selectedTest) return;
-    fetchLogContent(
-      compareSelectedLogFile,
-      id2,
-      compareNextCursor,
-      setLoadingCompareLogs,
-      setCompareLogContent,
-      setCompareHasMoreLogs,
-      setCompareNextCursor
-    );
-  };
-
   const handleCurrentSelectLogFile = async (filePath: string) => {
     setCurrentSelectedLogFile(filePath);
     setCurrentLogContent('');
-    setCurrentNextCursor(undefined);
     await fetchLogContent(
       filePath,
       id1,
-      undefined,
       setLoadingCurrentLogs,
       setCurrentLogContent,
-      setCurrentHasMoreLogs,
-      setCurrentNextCursor
     );
   };
 
   const handleCompareSelectLogFile = async (filePath: string) => {
     setCompareSelectedLogFile(filePath);
     setCompareLogContent('');
-    setCompareNextCursor(undefined);
     await fetchLogContent(
       filePath,
       id2,
-      undefined,
       setLoadingCompareLogs,
       setCompareLogContent,
-      setCompareHasMoreLogs,
-      setCompareNextCursor
     );
   };
 
   const filteredResults = React.useMemo(() => {
-    return changedResults.filter(result => {
+    return changedResults?.filter(result => {
       const status = getComparisonStatus(result);
       switch (filterType) {
         case 'new-failures':
@@ -236,7 +284,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-4">
             <Link
-              href={`/test-types/${encodeURIComponent(type)}/subtypes/${encodeURIComponent(subtype)}/runs/compare/${id1}`}
+              to={`/test-types/${encodeURIComponent(type || '')}/subtypes/${encodeURIComponent(subtype || '')}/runs/compare/${id1 || ''}`}
               className="mr-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             >
               ← Back to Run Selection
@@ -257,7 +305,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
             onClick={() => setFilterType('new-failures')}
             className={`text-left bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:ring-2 hover:ring-red-500 transition-all ${filterType === 'new-failures' ? 'ring-2 ring-red-500' : ''}`}
           >
-            <h3 className="text-lg font-semibold mb-2">New Failures</h3>
+            <h3 className="text-lg font-semibold mb-2 dark:text-white">New Failures</h3>
             <p className="text-2xl text-red-600">
               {stats.newFailures}
             </p>
@@ -266,7 +314,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
             onClick={() => setFilterType('new-passes')}
             className={`text-left bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:ring-2 hover:ring-green-500 transition-all ${filterType === 'new-passes' ? 'ring-2 ring-green-500' : ''}`}
           >
-            <h3 className="text-lg font-semibold mb-2">New Passes</h3>
+            <h3 className="text-lg font-semibold mb-2 dark:text-white">New Passes</h3>
             <p className="text-2xl text-green-600">
               {stats.newPasses}
             </p>
@@ -275,7 +323,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
             onClick={() => setFilterType('new-skips')}
             className={`text-left bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:ring-2 hover:ring-gray-500 transition-all ${filterType === 'new-skips' ? 'ring-2 ring-gray-500' : ''}`}
           >
-            <h3 className="text-lg font-semibold mb-2">New Skips</h3>
+            <h3 className="text-lg font-semibold mb-2 dark:text-white">New Skips</h3>
             <p className="text-2xl text-yellow-600">
               {stats.newSkips}
             </p>
@@ -304,7 +352,7 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
             <div className="grid grid-cols-[repeat(8,minmax(120px,1fr))] gap-4 justify-items-stretch">
               {filteredResults?.map((result) => {
                 const comparisonStatus = getComparisonStatus(result);
-                const compareResult = compareRun.results.find(cr => cr.name === result.name);
+                const compareResult = compareRun?.results.find(cr => cr.name === result.name);
                 return (
                   <div 
                     key={result.name}
@@ -408,19 +456,23 @@ export default function ComparisonClient({ type, subtype, id1, id2, currentRun, 
                       logContent={currentLogContent}
                       selectedLogFile={currentSelectedLogFile}
                       onSelectLogFile={handleCurrentSelectLogFile}
-                      onLogScroll={handleCurrentLogScroll}
                     />
                   ) : (
+                    compareRun?.results.find(r => r.name === selectedTest.name) ? (
                     <LogViewer
                       testName={selectedTest.name}
-                      status={compareRun.results.find(r => r.name === selectedTest.name)?.status || 'unknown'}
+                      status={compareRun?.results.find(r => r.name === selectedTest.name)?.status || 'unknown'}
                       logFiles={compareLogFiles}
                       loadingLogs={loadingCompareLogs}
                       logContent={compareLogContent}
                       selectedLogFile={compareSelectedLogFile}
                       onSelectLogFile={handleCompareSelectLogFile}
-                      onLogScroll={handleCompareLogScroll}
                     />
+                    ) : (
+                      <div className="p-4 text-gray-500 dark:text-gray-400">
+                        No corresponding test result found in comparison run
+                      </div>
+                    )
                   )}
                 </div>
               </div>

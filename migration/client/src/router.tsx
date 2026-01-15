@@ -4,6 +4,8 @@ import Home from "./app/page";
 import TestTypeClient from "./app/test-types/[type]/client";
 import TestRunsClient from "./app/test-types/[type]/subtypes/[subtype]/client";
 import TestRunClient from "./app/test-types/[type]/subtypes/[subtype]/runs/[id]/client";
+import CompareClient from "./app/test-types/[type]/subtypes/[subtype]/runs/compare/[id1]/client";
+import ComparisonClient from "./app/test-types/[type]/subtypes/[subtype]/runs/compare/[id1]/[id2]/client";
 
 const TestTypeRoute = () => {
   const params = useParams();
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
       {
         path: "test-types/:type/subtypes/:subtype/runs/:id",
         element: <TestRunClient />
+      },
+      {
+        path: "test-types/:type/subtypes/:subtype/runs/compare/:id1",
+        element: <CompareClient />
+      },
+      {
+        path: "test-types/:type/subtypes/:subtype/runs/compare/:id1/:id2",
+        element: <ComparisonClient />
       },
     ],
   },
