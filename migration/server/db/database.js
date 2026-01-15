@@ -262,13 +262,14 @@ export function ingestTestRun(data) {
   `);
 
   try {
+    let testTypeId, subtypeId, runId;
     // Start transaction
     db.prepare('BEGIN').run();
 
     for (const testTypeData of data.test_types) {
       // Find or create test type
       const testType = getTestTypeByName.get(testTypeData.type);
-      const testTypeId = testType ? testType.id : (() => {
+      testTypeId = testType ? testType.id : (() => {
         const newId = randomUUID();
         insertTestType.run(newId, testTypeData.type);
         return newId;
@@ -276,7 +277,7 @@ export function ingestTestRun(data) {
 
       // Find or create subtype
       const subtype = getSubtypeByName.get(testTypeId, testTypeData.subtype.name);
-      const subtypeId = subtype ? subtype.id : (() => {
+      subtypeId = subtype ? subtype.id : (() => {
         const newId = randomUUID();
         insertTestSubtype.run(newId, testTypeId, testTypeData.subtype.name);
         return newId;
@@ -299,7 +300,7 @@ export function ingestTestRun(data) {
         }
         
         // Insert test run
-        const runId = run.run_id;
+        runId = run.run_id;
         const label = run.label;
         const passedTests = run.tests.filter(t => t.status === 'pass').length;
         const totalTests = run.tests.length;
