@@ -1,0 +1,9 @@
+setfattr: /vdc/test-425/attrfile: No space left on device
+1 xattr extents
+/vdc/test-425/attrfile:
+ EXT: FILE-OFFSET               BLOCK-RANGE      TOTAL FLAGS
+   0: [0..18446744073709551615]: 4194560..4194559     0 0x301
+1 xattr extents
+/vdc/test-425/attrfile:
+ EXT: FILE-OFFSET               BLOCK-RANGE      TOTAL FLAGS
+   0: [0..18446744073709551615]: 4194560..4194559     0 0x301

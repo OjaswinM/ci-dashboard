@@ -1,0 +1,5 @@
+wrote 4096/4096 bytes at offset 0
+4 KiB, 1 ops; 0.0000 sec (355.114 MiB/sec and 90909.0909 ops/sec)
+before mwrite: 1741596421 1741596421
+after mwrite : 1741596423 1741596423
+umount: /dev/vdc: not mounted.

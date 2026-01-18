@@ -1,0 +1,77 @@
+[  907.033377] run fstests generic/703 at 2025-03-10 08:59:51
+[  907.202719] EXT4-fs (vdd): mounted filesystem f1ff2a76-1bce-46cc-b8b8-5a7b1bcd106e r/w with ordered data mode. Quota mode: none.
+[  907.370428] EXT4-fs (dm-0): mounted filesystem 4e519722-d4d7-42cf-9e0f-91911c7d0b5e r/w with ordered data mode. Quota mode: none.
+[  918.180353] EXT4-fs (dm-0): unmounting filesystem 4e519722-d4d7-42cf-9e0f-91911c7d0b5e.
+[  932.824895] ------------[ cut here ]------------
+[  932.825159] WARNING: CPU: 0 PID: 659415 at mm/page_alloc.c:4715 __alloc_frozen_pages_noprof+0x31c/0x330
+[  932.825651] CPU: 0 UID: 0 PID: 659415 Comm: mount Tainted: G        W          6.14.0-rc2-xfstests-00023-gfcf378ad3893-dirty #4
+[  932.826256] Tainted: [W]=WARN
+[  932.826416] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org 04/01/2014
+[  932.827004] RIP: 0010:__alloc_frozen_pages_noprof+0x31c/0x330
+[  932.827321] Code: 89 ee 89 df c6 44 24 20 00 4c 89 64 24 08 41 89 dd e8 38 f2 ff ff 49 89 c7 e9 67 fe ff ff 80 e3 3f eb c0 c6 05 49 59 73 01 01 <0f> 0b eb 96 e8 db 7d d4 00 66 66 2e 0f 1f 84 00 00 00 00 00 90 90
+[  932.828478] RSP: 0018:ffffc900056a7888 EFLAGS: 00010246
+[  932.828762] RAX: 0000000000000000 RBX: 0000000000040cc0 RCX: 0000000000000000
+[  932.829140] RDX: 0000000000000000 RSI: 000000000000000b RDI: 0000000000040cc0
+[  932.829505] RBP: 000000000000000b R08: 0000000100000000 R09: 0000000000000001
+[  932.829867] R10: ffffc900056a79f8 R11: ffffffffffd351f9 R12: 0000000000000000
+[  932.830227] R13: 0000000000040cc0 R14: 0000000000000cc0 R15: 0000000000000001
+[  932.830580] FS:  00007fc1c2f10840(0000) GS:ffff88807dc00000(0000) knlGS:0000000000000000
+[  932.831087] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  932.831394] CR2: 00007f127253a9f0 CR3: 000000000d878000 CR4: 0000000000750ef0
+[  932.831768] PKRU: 55555554
+[  932.831908] Call Trace:
+[  932.832039]  <TASK>
+[  932.832154]  ? show_trace_log_lvl+0x1a5/0x2e0
+[  932.832382]  ? show_trace_log_lvl+0x1a5/0x2e0
+[  932.832605]  ? __alloc_pages_noprof+0xe/0x20
+[  932.832831]  ? __alloc_frozen_pages_noprof+0x31c/0x330
+[  932.833095]  ? __warn.cold+0x8e/0xe8
+[  932.833282]  ? __alloc_frozen_pages_noprof+0x31c/0x330
+[  932.833572]  ? report_bug+0x123/0x190
+[  932.833800]  ? handle_bug+0x53/0x90
+[  932.833978]  ? exc_invalid_op+0x17/0x70
+[  932.834175]  ? asm_exc_invalid_op+0x1a/0x20
+[  932.834485]  ? __alloc_frozen_pages_noprof+0x31c/0x330
+[  932.834806]  __alloc_pages_noprof+0xe/0x20
+[  932.835056]  ___kmalloc_large_node+0x7b/0x130
+[  932.835323]  __kmalloc_large_node_noprof+0x1d/0xa0
+[  932.835614]  __kmalloc_node_track_caller_noprof+0x426/0x510
+[  932.835951]  ? ext4_mb_mark_context+0x2c4/0x3f0
+[  932.836227]  ? ext4_fc_record_regions+0xa9/0xd0
+[  932.836502]  ? krealloc_noprof+0xa0/0x2b0
+[  932.836754]  krealloc_noprof+0xa0/0x2b0
+[  932.836988]  ext4_fc_record_regions+0xa9/0xd0
+[  932.837261]  ext4_ext_clear_bb+0x176/0x1f0
+[  932.837509]  ext4_fc_replay_inode+0x7c/0x340
+[  932.837778]  ext4_fc_replay+0x152/0x700
+[  932.838013]  ? jread+0x86/0x140
+[  932.838206]  do_one_pass+0x755/0xdc0
+[  932.838419]  jbd2_journal_recover+0x1f1/0x260
+[  932.838679]  jbd2_journal_load+0x8d/0x170
+[  932.838913]  ext4_load_journal+0x223/0x760
+[  932.839157]  ext4_load_and_init_journal+0x29/0x360
+[  932.839442]  ? ext4_es_register_shrinker+0x192/0x1c0
+[  932.839731]  __ext4_fill_super+0x16e6/0x1740
+[  932.839980]  ext4_fill_super+0xd3/0x280
+[  932.840206]  ? setup_bdev_super+0xf4/0x1f0
+[  932.840447]  ? __pfx_ext4_fill_super+0x10/0x10
+[  932.840707]  get_tree_bdev_flags+0x131/0x1d0
+[  932.840978]  vfs_get_tree+0x26/0xd0
+[  932.841196]  do_new_mount+0x18e/0x320
+[  932.841417]  __x64_sys_mount+0x118/0x150
+[  932.841653]  do_syscall_64+0x4b/0x110
+[  932.841870]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[  932.842162] RIP: 0033:0x7fc1c310fd3a
+[  932.842377] Code: 48 8b 0d c9 80 0c 00 f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 96 80 0c 00 f7 d8 64 89 01 48
+[  932.843435] RSP: 002b:00007ffd232eb9a8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  932.843869] RAX: ffffffffffffffda RBX: 000055fa00b5b9f0 RCX: 00007fc1c310fd3a
+[  932.844295] RDX: 000055fa00b5bc20 RSI: 000055fa00b5bc60 RDI: 000055fa00b5bce0
+[  932.844710] RBP: 0000000000000000 R08: 000055fa00b5bc80 R09: 0000000000000060
+[  932.845119] R10: 0000000000000000 R11: 0000000000000246 R12: 000055fa00b5bce0
+[  932.845507] R13: 000055fa00b5bc20 R14: 00007fc1c3277264 R15: 000055fa00b5bb08
+[  932.845897]  </TASK>
+[  932.846025] ---[ end trace 0000000000000000 ]---
+[  950.163845] EXT4-fs (dm-0): recovery complete
+[  950.167732] EXT4-fs (dm-0): mounted filesystem 4e519722-d4d7-42cf-9e0f-91911c7d0b5e r/w with ordered data mode. Quota mode: none.
+[  950.617204] EXT4-fs (dm-0): unmounting filesystem 4e519722-d4d7-42cf-9e0f-91911c7d0b5e.
+[  950.704734] EXT4-fs (vdd): unmounting filesystem f1ff2a76-1bce-46cc-b8b8-5a7b1bcd106e.

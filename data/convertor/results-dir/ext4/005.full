@@ -1,0 +1,4 @@
+wrote 4096/4096 bytes at offset 4096
+4 KiB, 1 ops; 0.0000 sec (169.837 MiB/sec and 43478.2609 ops/sec)
+wrote 4096/4096 bytes at offset 0
+4 KiB, 1 ops; 0.0000 sec (260.417 MiB/sec and 66666.6667 ops/sec)

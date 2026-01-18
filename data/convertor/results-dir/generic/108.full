@@ -1,0 +1,7 @@
+umount: /vdc: not mounted.
+  No command with matching syntax recognised.  Run 'vgremove --help' for more information.
+  Correct command syntax is:
+  vgremove VG|Tag|Select ...
+
+  Labels on physical volume "/dev/vdc" successfully wiped.
+umount: /dev/vdc: not mounted.

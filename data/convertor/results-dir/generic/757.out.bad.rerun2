@@ -1,0 +1,4 @@
+QA output created by 757
+/usr/sbin/e2fsck: Superblock checksum does not match superblock while trying to re-open /dev/mapper/thin-vol.757
+_check_generic_filesystem: filesystem on /dev/mapper/thin-vol.757 is inconsistent
+(see /results/ext4/results-adv/generic/757.full for details)
