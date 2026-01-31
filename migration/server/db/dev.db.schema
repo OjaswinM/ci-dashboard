@@ -1,0 +1,61 @@
+CREATE TABLE TestType (
+  id TEXT PRIMARY KEY,
+  name TEXT UNIQUE NOT NULL,
+  description TEXT,
+  createdAt TEXT NOT NULL DEFAULT (datetime('now')),
+  updatedAt TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE TABLE TestSubtype (
+  id TEXT PRIMARY KEY,
+  testTypeId TEXT NOT NULL,
+  name TEXT NOT NULL,
+  description TEXT,
+  createdAt TEXT NOT NULL DEFAULT (datetime('now')),
+  updatedAt TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY(testTypeId) REFERENCES TestType(id),
+  UNIQUE(testTypeId, name)
+);
+CREATE TABLE TestRun (
+  id TEXT PRIMARY KEY,
+  testSubtypeId TEXT NOT NULL,
+  runTimestamp TEXT NOT NULL,
+  version TEXT,
+  totalTests INTEGER,
+  passedTests INTEGER,
+  failedTests INTEGER,
+  totalDuration REAL,
+  createdAt TEXT NOT NULL DEFAULT (datetime('now')),
+  updatedAt TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY(testSubtypeId) REFERENCES TestSubtype(id)
+);
+CREATE TABLE TestEnvironment (
+  id TEXT PRIMARY KEY,
+  testRunId TEXT UNIQUE NOT NULL,
+  vmlinuxPath TEXT,
+  configPath TEXT,
+  distro TEXT,
+  kernelRelease TEXT,
+  architecture TEXT,
+  configName TEXT,
+  createdAt TEXT NOT NULL DEFAULT (datetime('now')),
+  updatedAt TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY(testRunId) REFERENCES TestRun(id)
+);
+CREATE TABLE TestResult (
+  id TEXT PRIMARY KEY,
+  testRunId TEXT NOT NULL,
+  name TEXT NOT NULL,
+  status TEXT NOT NULL,
+  duration REAL NOT NULL,
+  hasLog INTEGER NOT NULL, -- 0 = false, 1 = true
+  errorMessage TEXT,
+  createdAt TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY(testRunId) REFERENCES TestRun(id)
+);
+CREATE TABLE TestLog (
+  id TEXT PRIMARY KEY,
+  testResultId TEXT UNIQUE NOT NULL,
+  logPath TEXT NOT NULL,
+  createdAt TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY(testResultId) REFERENCES TestResult(id)
+);
