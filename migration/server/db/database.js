@@ -358,7 +358,12 @@ export function ingestTestRun(data) {
 
     // Commit transaction
     db.prepare('COMMIT').run();
-    return { success: true };
+    return { 
+	    success: true,
+	    testTypeId,
+	    subtypeId,
+	    runId
+    };
   } catch (error) {
     // Rollback on error
     db.prepare('ROLLBACK').run();
