@@ -16,21 +16,22 @@ CREATE TABLE TestSubtype (
   UNIQUE(testTypeId, name)
 );
 CREATE TABLE TestRun (
-  id TEXT PRIMARY KEY,
+  id TEXT NOT NULL,
+  label TEXT NOT NULL,
   testSubtypeId TEXT NOT NULL,
-  runTimestamp TEXT NOT NULL,
-  version TEXT,
   totalTests INTEGER,
   passedTests INTEGER,
   failedTests INTEGER,
   totalDuration REAL,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
   updatedAt TEXT NOT NULL DEFAULT (datetime('now')),
+  PRIMARY KEY (id, testSubtypeId),
   FOREIGN KEY(testSubtypeId) REFERENCES TestSubtype(id)
 );
 CREATE TABLE TestEnvironment (
-  id TEXT PRIMARY KEY,
-  testRunId TEXT UNIQUE NOT NULL,
+  id TEXT NOT NULL,
+  testRunId TEXT NOT NULL,
+  testSubtypeId TEXT NOT NULL,
   vmlinuxPath TEXT,
   configPath TEXT,
   distro TEXT,
@@ -39,23 +40,28 @@ CREATE TABLE TestEnvironment (
   configName TEXT,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
   updatedAt TEXT NOT NULL DEFAULT (datetime('now')),
-  FOREIGN KEY(testRunId) REFERENCES TestRun(id)
+  PRIMARY KEY (id, testRunId),
+  FOREIGN KEY(testRunId, testSubtypeId) REFERENCES TestRun(id, testSubtypeId)
 );
 CREATE TABLE TestResult (
-  id TEXT PRIMARY KEY,
+  id TEXT NOT NULL,
   testRunId TEXT NOT NULL,
+  testSubtypeId TEXT NOT NULL,
   name TEXT NOT NULL,
   status TEXT NOT NULL,
   duration REAL NOT NULL,
   hasLog INTEGER NOT NULL, -- 0 = false, 1 = true
   errorMessage TEXT,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
-  FOREIGN KEY(testRunId) REFERENCES TestRun(id)
+  PRIMARY KEY (id, testRunId),
+  FOREIGN KEY(testRunId, testSubtypeId) REFERENCES TestRun(id, testSubtypeId)
 );
 CREATE TABLE TestLog (
-  id TEXT PRIMARY KEY,
-  testResultId TEXT UNIQUE NOT NULL,
+  id TEXT NOT NULL,
+  testResultId TEXT NOT NULL,
+  testRunId TEXT NOT NULL,
   logPath TEXT NOT NULL,
   createdAt TEXT NOT NULL DEFAULT (datetime('now')),
-  FOREIGN KEY(testResultId) REFERENCES TestResult(id)
+  PRIMARY KEY (id, testResultId),
+  FOREIGN KEY(testResultId, testRunId) REFERENCES TestResult(id, testRunId)
 );
